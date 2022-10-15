@@ -47,7 +47,10 @@
                     </div>
 
                     <div class="text-end button">
-                        <button class="btn rounded-pill btn-primary btn">
+                        <button
+                            class="btn rounded-pill btn-primary btn"
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
                             <i class="fa fa-plus fa-lg"></i>
                             Add Task
                         </button>
@@ -55,7 +58,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-4 mb-3 col-sm-6">
+                    <div class="col-lg-4 mb-3 col-md-6">
                         <div class="card">
                             <div class="card-header bg-dark">
                                 <h4 class="text-white pt-1">
@@ -246,7 +249,7 @@
                                 <!-- IN PROGRESS TASKS HERE -->
                                 <button
                                     class="d-flex list-group-item w-100 pb-2 py-2 px-1">
-                                    <div class="m-3">
+                                    <div class="m-3 rotate">
                                         <i
                                             class="fa-lg fa-solid fa-circle-notch green"></i>
                                     </div>
@@ -277,7 +280,7 @@
                                 </button>
                                 <button
                                     class="d-flex list-group-item w-100 pb-2 py-2 px-1">
-                                    <div class="m-3">
+                                    <div class="m-3 rotate">
                                         <i
                                             class="fa-lg fa-solid fa-circle-notch green"></i>
                                     </div>
@@ -308,7 +311,7 @@
                                 </button>
                                 <button
                                     class="d-flex list-group-item w-100 pb-2 py-2 px-1">
-                                    <div class="m-3">
+                                    <div class="m-3 rotate">
                                         <i
                                             class="fa-lg fa-solid fa-circle-notch green"></i>
                                     </div>
@@ -339,7 +342,7 @@
                                 </button>
                                 <button
                                     class="d-flex list-group-item w-100 pb-2 py-2 px-1 rounded-bottom">
-                                    <div class="m-3">
+                                    <div class="m-3 rotate">
                                         <i
                                             class="fa-lg fa-solid fa-circle-notch green"></i>
                                     </div>
@@ -525,10 +528,108 @@
         <!-- END #app -->
 
         <!-- TASK MODAL -->
-        <div class="modal fade" id="modal-task">
-            <!-- Modal content goes here -->
+        <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">
+                            Add Task
+                        </h1>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="taskTitle" class="col-form-label"
+                                    >Title</label
+                                >
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="taskTitle"
+                                    required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="taskType" class="col-form-label"
+                                    >Type</label
+                                >
+                                <div class="form-check py-2 mx-3">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        id="feature"
+                                        name="taskType"
+                                        value="Feature" />
+                                    <label
+                                        for="Feature"
+                                        class="form-check-label"
+                                        >Feature</label
+                                    >
+                                </div>
+                                <div class="form-check py-2 mx-3">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        id="Bug"
+                                        name="taskType"
+                                        value="Bug" />
+                                    <label for="Bug" class="form-check-label"
+                                        >Bug</label
+                                    >
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="taskPriority" class="col-form-label"
+                                    >Priority</label
+                                >
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="taskPriority" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="taskStatus" class="col-form-label"
+                                    >Status</label
+                                >
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="taskPriority" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label"
+                                    >Message:</label
+                                >
+                                <textarea
+                                    class="form-control"
+                                    id="message-text"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="reset"
+                            class="btn"
+                            data-bs-dismiss="modal">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-
+        <!-- Modal content goes here -->
         <!-- ================== BEGIN core-js ================== -->
         <script src="assets/js/vendor.min.js"></script>
         <script src="assets/js/app.min.js"></script>

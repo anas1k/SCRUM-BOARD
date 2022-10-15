@@ -12,3 +12,7 @@
 .green{
     color: rgb(2, 202, 2);
 }
+
+.rotate{
+    transform: rotate(110deg);
+}
