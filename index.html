@@ -591,34 +591,42 @@
                                 <label for="taskPriority" class="col-form-label"
                                     >Priority</label
                                 >
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="taskPriority" />
+                                <select class="form-control" id="taskPriority">
+                                    <option value selected>
+                                        Please select
+                                    </option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="taskStatus" class="col-form-label"
                                     >Status</label
                                 >
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="taskPriority" />
+                                <select class="form-control" id="taskStatus">
+                                    <option value selected>
+                                        Please select
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="taskDate" class="col-form-label"
+                                    >Date</label
+                                >
                             </div>
                             <div class="mb-3">
                                 <label for="message-text" class="col-form-label"
-                                    >Message:</label
+                                    >Description</label
                                 >
                                 <textarea
                                     class="form-control"
-                                    id="message-text"></textarea>
+                                    id="message-text"
+                                    rows="8"></textarea>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button
                             type="reset"
-                            class="btn"
+                            class="btn btn-light text-black"
                             data-bs-dismiss="modal">
                             Cancel
                         </button>
