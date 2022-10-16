@@ -24,6 +24,7 @@
         <link href="assets/css/vendor.min.css" rel="stylesheet" />
         <link href="assets/css/default/app.min.css" rel="stylesheet" />
         <link href="assets/css/style.css" rel="stylesheet" />
+
         <!-- ================== END core-css ================== -->
     </head>
     <body>
@@ -534,7 +535,7 @@
             tabindex="-1"
             aria-labelledby="exampleModalLabel"
             aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog mt-1 mb-1">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel">
@@ -546,9 +547,9 @@
                             data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="mb-1">
+                    <div class="modal-body pt-0 pb-1">
+                        <form role="form" method="">
+                            <div class="mb-0">
                                 <label for="taskTitle" class="col-form-label"
                                     >Title</label
                                 >
@@ -558,7 +559,7 @@
                                     id="taskTitle"
                                     required />
                             </div>
-                            <div class="mb-2">
+                            <div class="mb-0">
                                 <label for="taskType" class="col-form-label"
                                     >Type</label
                                 >
@@ -587,7 +588,7 @@
                                     >
                                 </div>
                             </div>
-                            <div class="mb-2">
+                            <div class="mb-0">
                                 <label for="taskPriority" class="col-form-label"
                                     >Priority</label
                                 >
@@ -597,7 +598,7 @@
                                     </option>
                                 </select>
                             </div>
-                            <div class="mb-2">
+                            <div class="mb-0">
                                 <label for="taskStatus" class="col-form-label"
                                     >Status</label
                                 >
@@ -607,18 +608,23 @@
                                     </option>
                                 </select>
                             </div>
-                            <div class="mb-2">
+                            <div class="mb-0">
                                 <label for="taskDate" class="col-form-label"
                                     >Date</label
                                 >
+                                <input
+                                    class="form-control"
+                                    type="date"
+                                    required
+                                    name="taskDate" />
                             </div>
-                            <div class="mb-2">
-                                <label for="message-text" class="col-form-label"
+                            <div class="mb-0">
+                                <label for="taskDate" class="col-form-label"
                                     >Description</label
                                 >
                                 <textarea
                                     class="form-control"
-                                    id="message-text"
+                                    id="taskDate"
                                     rows="8"></textarea>
                             </div>
                         </form>
@@ -630,13 +636,17 @@
                             data-bs-dismiss="modal">
                             Cancel
                         </button>
-                        <button type="submit" class="btn btn-primary">
+                        <button
+                            type="submit"
+                            name="submitTask"
+                            class="btn btn-primary">
                             Save
                         </button>
                     </div>
                 </div>
             </div>
         </div>
+
         <!-- Modal content goes here -->
         <!-- ================== BEGIN core-js ================== -->
         <script src="assets/js/vendor.min.js"></script>
