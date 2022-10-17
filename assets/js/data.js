@@ -1,6 +1,7 @@
 /* 
     This file contains an array of objects as tasks, to be loaded in the execution.
 */
+
 var tasks = [
     {
         'title'         :   'Keep all the updated requirements in one place',
@@ -17,10 +18,10 @@ var tasks = [
         'status'        :   'To Do',
         'date'          :   '2022-10-08',
         'description'   :   `Descriptive requirements are very helpful when it comes to understanding the context of a problem, yet finally it is good to precisely specify what is expected. Thus the developer will not have to look for the actual requirements in a long, descriptive text but he will be able to easily get to the essence. One might find that sometimes — when acceptance criteria are well defined — there is little or no need for any additional information. Example:
-        a) User navigates to “/accounts” and clicks on red download CSV button
-        b) Popup appears with two buttons: “This year” and “Last year”
-        c) If user clicked on “Last year” download is initiated
-        d) CSV downloaded includes following columns…`,
+                            a) User navigates to “/accounts” and clicks on red download CSV button
+                            b) Popup appears with two buttons: “This year” and “Last year”
+                            c) If user clicked on “Last year” download is initiated
+                            d) CSV downloaded includes following columns…`,
     },
     {
         'title'         :   'Provide mockups',
@@ -143,4 +144,5 @@ var tasks = [
         'date'          :   '2022-10-08',
         'description'   :   `of the person that reported the bug. This will not always be possible, but in some cases it might be advantageous and most effective if a developer can have a chat with a person that actually experienced the bug, especially if the steps to reproduce a problem are not deterministic.`,
     },
+
 ];

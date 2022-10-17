@@ -16,3 +16,7 @@
 .rotate{
     transform: rotate(110deg);
 }
+
+.description-max-width {
+    max-width: 14rem;
+}
