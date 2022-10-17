@@ -3,6 +3,8 @@
  * 
  */
 
+var allTasks =[];
+
 function createTask() {
     // initialiser task form
 
@@ -13,6 +15,42 @@ function createTask() {
 }
 
 function saveTask() {
+
+    var from =document.querySelector("#from");
+    form.addEventListener('submit', (e) => {
+        // stop reload of from
+        e.preventDefault();
+
+        // getting inputs from form 
+        var taskTitle = document.getElementById('taskTitle').value;
+        var taskType = document.getElementById('taskType').value;
+        var taskPriority = document.getElementById('taskPriority').value;
+        var taskStatus = document.getElementById('taskStatus').value;
+        var taskDate = document.getElementById('taskDate').value;
+        var taskDescription = document.getElementById('taskDescription').value;
+        var task = {
+            title: taskTitle,
+            type: taskType,
+            priority: taskPriority,
+            status: taskStatus,
+            date: taskDate,
+            description: taskDescription,
+        };
+
+
+        // add task to Array allTasks
+        allTasks.push(task);
+
+        // empty inputs
+        taskTitle.value = "";
+        taskType.value = "";
+        taskPriority.value = "";
+        taskStatus.value = "";
+
+        initTaskForm();
+
+    });
+
     // Recuperer task attributes a partir les champs input
 
     // Créez task object
@@ -60,7 +98,20 @@ function deleteTask() {
     // refresh tasks
 }
 
+
+
 function initTaskForm() {
+
+    document.querySelector("#toDo-tasks").innerHTML = "";
+    document.querySelector("#inProgress-tasks").innerHTML = "";
+    document.querySelector("#done-tasks").innerHTML = "";
+    
+
+    allTasks.forEach(task) => {
+        
+
+    }
+
     // Clear task form from data
 
     // Hide all action buttons
