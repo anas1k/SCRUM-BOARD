@@ -18,6 +18,7 @@ function saveTask() {
 
     var from =document.querySelector("#from");
     form.addEventListener('submit', (e) => {
+
         // stop reload of from
         e.preventDefault();
 
@@ -37,7 +38,6 @@ function saveTask() {
             description: taskDescription,
         };
 
-
         // add task to Array allTasks
         allTasks.push(task);
 
@@ -46,6 +46,8 @@ function saveTask() {
         taskType.value = "";
         taskPriority.value = "";
         taskStatus.value = "";
+        taskDate.value = "";
+        taskDescription.value = "";
 
         initTaskForm();
 

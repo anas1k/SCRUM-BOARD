@@ -622,9 +622,12 @@
                                     >Type</label
                                 >
                                 <div class="form-check py-2 mx-3">
-                                    <input class="form-check-input" type="radio"
-                                    id="taskType"" name="taskType"
-                                    value="Feature" />
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        id="taskType"
+                                        name="taskType"
+                                        value="Feature" />
                                     <label
                                         for="Feature"
                                         class="form-check-label"
@@ -644,13 +647,19 @@
                                 </div>
                             </div>
                             <div class="mb-0">
-                                <label for="taskPriority" class="col-form-label"
+                                <label
+                                    for="taskPriority"
+                                    class="col-form-label"
+                                    required
                                     >Priority</label
                                 >
                                 <select class="form-select" id="taskPriority">
-                                    <option value selected>
+                                    <option value selected disabled>
                                         Please select
                                     </option>
+                                    <option value="high">High</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="low">Low</option>
                                 </select>
                             </div>
                             <div class="mb-0">
@@ -658,9 +667,14 @@
                                     >Status</label
                                 >
                                 <select class="form-select" id="taskStatus">
-                                    <option value selected>
+                                    <option selected disabled>
                                         Please select
                                     </option>
+                                    <option value="toDo">To Do</option>
+                                    <option value="inProgress">
+                                        In Progress
+                                    </option>
+                                    <option value="done">Done</option>
                                 </select>
                             </div>
                             <div class="mb-0">
