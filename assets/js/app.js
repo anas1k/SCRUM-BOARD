@@ -121,24 +121,22 @@ function reloadTasks() {
         title = toDoTasks.querySelector("#taskTitle"),
         type = toDoTasks.querySelector("#taskType"),
         priority = toDoTasks.querySelector("#taskPriority"),
-        status = toDoTasks.querySelector("#taskStatus"),
+        statu = toDoTasks.querySelector("#taskStatus"),
         date = toDoTasks.querySelector("#taskDate"),
         description = toDoTasks.querySelector("#taskDescription");
 
 
-    tasks.forEach(task => {
-        if(task.status == "to Do"){
-            title.innerText = task.title;
+    for(let task of tasks){
+        
+            /* title.innerText = task.title;
             date.innerText = task.date;
-            priority.innerHTML = task.priority;
-            status.innerHTML = task.status;
-            type.innerHTML = task.type;
+            priority.innerText = task.priority;
+            type.innerText = task.type;
             description.innerHTML = task.description;
+           /*  toDoTasks.innerHTML += toDoBox.innerHTML; */
 
-            console.log(task);
-        }
-
-    });
+        
+    }
 
 
     // Remove tasks elements
