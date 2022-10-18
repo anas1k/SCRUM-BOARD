@@ -16,10 +16,10 @@ function createTask() {
 
 function saveTask() {
 
-    var from =document.querySelector("#from");
+    var form =document.querySelector("#from");
     form.addEventListener('submit', (e) => {
 
-        // stop reload of from
+        // stop reload of form
         e.preventDefault();
 
         // getting inputs from form 
