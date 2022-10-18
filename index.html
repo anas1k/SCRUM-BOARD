@@ -70,6 +70,7 @@
                             <div class="" id="toDo-tasks">
                                 <!-- TO DO TASKS HERE -->
                                 <button
+                                    id="toDo-box"
                                     class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                                     <div class="m-3">
                                         <i
@@ -118,7 +119,7 @@
                                         </div>
                                     </div>
                                 </button>
-                                <button
+                                <!-- <button
                                     class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                                     <div class="m-3">
                                         <i
@@ -288,7 +289,7 @@
                                             >Feature</span
                                         >
                                     </div>
-                                </button>
+                                </button> -->
                             </div>
                         </div>
                     </div>
@@ -305,6 +306,7 @@
                             <div class="" id="inProgress-tasks">
                                 <!-- IN PROGRESS TASKS HERE -->
                                 <button
+                                    id="inProgress-box"
                                     class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                                     <div class="m-3 rotate">
                                         <i
@@ -335,7 +337,7 @@
                                         >
                                     </div>
                                 </button>
-                                <button
+                                <!-- <button
                                     class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                                     <div class="m-3 rotate">
                                         <i
@@ -430,7 +432,7 @@
                                             >Bug</span
                                         >
                                     </div>
-                                </button>
+                                </button> -->
                             </div>
                         </div>
                     </div>
@@ -441,7 +443,7 @@
                                     Done (<span id="done-tasks-count">4</span>)
                                 </h4>
                             </div>
-                            <div class=" ">
+                            <div class="done-tasks">
                                 <!-- DONE TASKS HERE -->
                                 <button
                                     id="done-tasks"
@@ -475,7 +477,7 @@
                                         >
                                     </div>
                                 </button>
-                                <button
+                                <!--  <button
                                     class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                                     <div class="m-3">
                                         <i
@@ -568,7 +570,7 @@
                                             >Bug</span
                                         >
                                     </div>
-                                </button>
+                                </button> -->
                             </div>
                         </div>
                     </div>
@@ -719,18 +721,19 @@
 
         <!-- Modal content goes here -->
 
-        <!-- JavaScript Code Start -->
-
-        <script>
-            var toDo = document.querySelector('#done-tasks');
-            console.log(toDo);
-        </script>
-
-        <!-- JavaScript Code End -->
-
         <!-- ================== BEGIN core-js ================== -->
         <script src="assets/js/vendor.min.js"></script>
         <script src="assets/js/app.min.js"></script>
+        <script src="assets/js/data.js"></script>
+        <script src="assets/js/app.js"></script>
         <!-- ================== END core-js ================== -->
+
+        <!-- JavaScript Code Start -->
+
+        <script>
+            reloadTasks();
+        </script>
+
+        <!-- JavaScript Code End -->
     </body>
 </html>

@@ -109,10 +109,6 @@ function initTaskForm() {
     document.querySelector("#done-tasks").innerHTML = "";
     
 
-    allTasks.forEach(task) => {
-        
-
-    }
 
     // Clear task form from data
 
@@ -120,6 +116,31 @@ function initTaskForm() {
 }
 
 function reloadTasks() {
+    var toDoTasks = document.querySelector("#toDo-tasks"),
+        toDoBox = document.querySelector("#toDo-box");
+        title = toDoTasks.querySelector("#taskTitle"),
+        type = toDoTasks.querySelector("#taskType"),
+        priority = toDoTasks.querySelector("#taskPriority"),
+        status = toDoTasks.querySelector("#taskStatus"),
+        date = toDoTasks.querySelector("#taskDate"),
+        description = toDoTasks.querySelector("#taskDescription");
+
+
+    tasks.forEach(task => {
+        if(task.status == "to Do"){
+            title.innerText = task.title;
+            date.innerText = task.date;
+            priority.innerHTML = task.priority;
+            status.innerHTML = task.status;
+            type.innerHTML = task.type;
+            description.innerHTML = task.description;
+
+            console.log(task);
+        }
+
+    });
+
+
     // Remove tasks elements
 
     // Set Task count
