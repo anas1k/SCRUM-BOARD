@@ -104,9 +104,7 @@ function deleteTask() {
 
 function initTaskForm() {
 
-    document.querySelector("#toDo-tasks").innerHTML = "";
-    document.querySelector("#inProgress-tasks").innerHTML = "";
-    document.querySelector("#done-tasks").innerHTML = "";
+    
     
 
 
@@ -116,19 +114,29 @@ function initTaskForm() {
 }
 
 function reloadTasks() {
-    var toDoTasks = document.querySelector("#toDo-tasks"),
-        toDoBox = document.querySelector("#toDo-box");
+    document.querySelector("#toDo-tasks").innerHTML = "";
+    document.querySelector("#inProgress-tasks").innerHTML = "";
+    document.querySelector("#done-tasks").innerHTML = "";
+    /* var toDoTasks = document.querySelector("#toDo-tasks"),
+        
         title = toDoTasks.querySelector("#taskTitle"),
         type = toDoTasks.querySelector("#taskType"),
         priority = toDoTasks.querySelector("#taskPriority"),
         statu = toDoTasks.querySelector("#taskStatus"),
         date = toDoTasks.querySelector("#taskDate"),
-        description = toDoTasks.querySelector("#taskDescription");
+        description = toDoTasks.querySelector("#taskDescription"); */
+    let toDo = document.querySelector("#toDo-box"),
+        inProgress = document.querySelector("#inProgress-box"),
+        Done = document.querySelector("#done-box");
 
-
-    for(let task of tasks){
-        
-            /* title.innerText = task.title;
+    tasks.forEach((task) =>{
+            if(task.status ==="to Do"){
+                toDo.innerHTML +=
+                ``
+            }
+        }
+    );
+        /* title.innerText = task.title;
             date.innerText = task.date;
             priority.innerText = task.priority;
             type.innerText = task.type;
@@ -136,7 +144,7 @@ function reloadTasks() {
            /*  toDoTasks.innerHTML += toDoBox.innerHTML; */
 
         
-    }
+    
 
 
     // Remove tasks elements
