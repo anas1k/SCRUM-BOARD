@@ -129,7 +129,7 @@ function reloadTasks() {
                 class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                 <div class="m-3">
                     <i
-                        class="fa-lg fa-regular fa-circle-question green "></i>
+                        class="fa-lg fa-regular fa-circle-question green"></i>
                 </div>
                 <div class="text-start">
                     <div class="fw-bolder" >
@@ -147,15 +147,12 @@ function reloadTasks() {
                     </div>
                     <div class="button">
                         <span
-                            class="btn btn-primary px-1 py-0"
-                            >
+                            class="btn btn-primary px-1 py-0">
                             ${task.priority}
-                            </span
-                        >
+                            </span>
                         <span
                             class="btn btn-gray-300 text-black px-1 py-0"
-                            >${task.type}</span
-                        >
+                            >${task.type}</span>
                     </div>
                 </div>
             </button>`
