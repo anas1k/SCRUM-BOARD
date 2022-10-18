@@ -129,7 +129,7 @@ function reloadTasks() {
                 class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                 <div class="m-3">
                     <i
-                        class="fa-lg fa-regular fa-circle-question green green"></i>
+                        class="fa-lg fa-regular fa-circle-question green "></i>
                 </div>
                 <div class="text-start">
                     <div class="fw-bolder" >
@@ -164,9 +164,9 @@ function reloadTasks() {
             inProgress.innerHTML +=
             `<button
                 class="d-flex list-group-item w-100 pb-2 py-2 px-1">
-                <div class="m-3">
+                <div class="m-3 rotate">
                     <i
-                        class="fa-lg fa-regular fa-circle-question green green"></i>
+                        class="fa-lg fa-solid fa-circle-notch green"></i>
                 </div>
                 <div class="text-start">
                     <div class="fw-bolder" >
