@@ -117,35 +117,131 @@ function reloadTasks() {
     document.querySelector("#toDo-tasks").innerHTML = "";
     document.querySelector("#inProgress-tasks").innerHTML = "";
     document.querySelector("#done-tasks").innerHTML = "";
-    /* var toDoTasks = document.querySelector("#toDo-tasks"),
-        
-        title = toDoTasks.querySelector("#taskTitle"),
-        type = toDoTasks.querySelector("#taskType"),
-        priority = toDoTasks.querySelector("#taskPriority"),
-        statu = toDoTasks.querySelector("#taskStatus"),
-        date = toDoTasks.querySelector("#taskDate"),
-        description = toDoTasks.querySelector("#taskDescription"); */
-    let toDo = document.querySelector("#toDo-box"),
-        inProgress = document.querySelector("#inProgress-box"),
-        Done = document.querySelector("#done-box");
+    
+    let toDo = document.querySelector("#toDo-tasks"),
+        inProgress = document.querySelector("#inProgress-tasks"),
+        done = document.querySelector("#done-tasks");
 
     tasks.forEach((task) =>{
-            if(task.status ==="to Do"){
-                toDo.innerHTML +=
-                ``
-            }
+        if(task.status ==="To Do"){
+            toDo.innerHTML +=
+            `<button
+                class="d-flex list-group-item w-100 pb-2 py-2 px-1">
+                <div class="m-3">
+                    <i
+                        class="fa-lg fa-regular fa-circle-question green green"></i>
+                </div>
+                <div class="text-start">
+                    <div class="fw-bolder" >
+                        ${task.title}
+                    </div>
+                    <div class="description-max-width">
+                        <div
+                            class="fw-light text-secondary">
+                            ${task.date}
+                        </div>
+                        <div
+                            class="text-truncate fw-light">
+                            ${task.description}
+                        </div>
+                    </div>
+                    <div class="button">
+                        <span
+                            class="btn btn-primary px-1 py-0"
+                            >
+                            ${task.priority}
+                            </span
+                        >
+                        <span
+                            class="btn btn-gray-300 text-black px-1 py-0"
+                            >${task.type}</span
+                        >
+                    </div>
+                </div>
+            </button>`
         }
-    );
+         else if (task.status ==="In Progress"){
+            inProgress.innerHTML +=
+            `<button
+                class="d-flex list-group-item w-100 pb-2 py-2 px-1">
+                <div class="m-3">
+                    <i
+                        class="fa-lg fa-regular fa-circle-question green green"></i>
+                </div>
+                <div class="text-start">
+                    <div class="fw-bolder" >
+                        ${task.title}
+                    </div>
+                    <div class="description-max-width">
+                        <div
+                            class="fw-light text-secondary">
+                            ${task.date}
+                        </div>
+                        <div
+                            class="text-truncate fw-light">
+                            ${task.description}
+                        </div>
+                    </div>
+                    <div class="button">
+                        <span
+                            class="btn btn-primary px-1 py-0"
+                            >
+                            ${task.priority}
+                            </span
+                        >
+                        <span
+                            class="btn btn-gray-300 text-black px-1 py-0"
+                            >${task.type}</span
+                        >
+                    </div>
+                </div>
+            </button>`
+            }
+         else if (task.status ==="Done"){
+            done.innerHTML +=
+            `<button
+                class="d-flex list-group-item w-100 pb-2 py-2 px-1">
+                <div class="m-3">
+                    <i
+                        class="fa-lg fa-regular fa-circle-question green green"></i>
+                </div>
+                <div class="text-start">
+                    <div class="fw-bolder" >
+                        ${task.title}
+                    </div>
+                    <div class="description-max-width">
+                        <div
+                            class="fw-light text-secondary">
+                            ${task.date}
+                        </div>
+                        <div
+                            class="text-truncate fw-light">
+                            ${task.description}
+                        </div>
+                    </div>
+                    <div class="button">
+                        <span
+                            class="btn btn-primary px-1 py-0"
+                            >
+                            ${task.priority}
+                            </span
+                        >
+                        <span
+                            class="btn btn-gray-300 text-black px-1 py-0"
+                            >${task.type}</span
+                        >
+                    </div>
+                </div>
+            </button>`
+            }
+        
+    });
         /* title.innerText = task.title;
             date.innerText = task.date;
             priority.innerText = task.priority;
             type.innerText = task.type;
             description.innerHTML = task.description;
            /*  toDoTasks.innerHTML += toDoBox.innerHTML; */
-
-        
-    
-
 
     // Remove tasks elements
 
