@@ -236,12 +236,7 @@ function reloadTasks() {
             }
         
     });
-        /* title.innerText = task.title;
-            date.innerText = task.date;
-            priority.innerText = task.priority;
-            type.innerText = task.type;
-            description.innerHTML = task.description;
-           /*  toDoTasks.innerHTML += toDoBox.innerHTML; */
+        
 
     // Remove tasks elements
 
