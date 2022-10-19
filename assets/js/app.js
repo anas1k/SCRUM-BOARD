@@ -12,7 +12,7 @@ function createTask() {
     // Ouvrir modal form
     
 }
-
+saveTask()
 function saveTask() {
 
     var form = document.querySelector("#form");
@@ -23,7 +23,7 @@ function saveTask() {
 
         // getting inputs from form 
         var taskTitle = document.getElementById('taskTitle').value;
-        var taskType = document.querySelector('input[name="type"]:checked').value;
+        var taskType = document.querySelector('input[name="taskType"]:checked').value;
         var taskPriority = document.getElementById('taskPriority').value;
         var taskStatus = document.getElementById('taskStatus').value;
         var taskDate = document.getElementById('taskDate').value;
@@ -36,7 +36,7 @@ function saveTask() {
             date: taskDate,
             description: taskDescription,
         };
-
+        console.log(task)
         // add task to tasks data
         tasks.push(task);
 
