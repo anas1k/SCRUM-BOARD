@@ -21,13 +21,14 @@ function saveTask() {
         // stop reload of form
         e.preventDefault();
 
-        // getting inputs from form 
+        // getting inputs from form // Recuperer task attributes a partir les champs input
         var taskTitle = document.getElementById('taskTitle').value;
         var taskType = document.querySelector('input[name="taskType"]:checked').value;
         var taskPriority = document.getElementById('taskPriority').value;
         var taskStatus = document.getElementById('taskStatus').value;
         var taskDate = document.getElementById('taskDate').value;
         var taskDescription = document.getElementById('taskDescription').value;
+        // Créez task object
         var task = {
             title: taskTitle,
             type: taskType,
@@ -37,7 +38,7 @@ function saveTask() {
             description: taskDescription,
         };
         console.log(task)
-        // add task to tasks data
+        // add task to tasks data // Ajoutez object au Array
         tasks.push(task);
 
         // empty inputs
@@ -49,11 +50,11 @@ function saveTask() {
 
     });
 
-    // Recuperer task attributes a partir les champs input
+    
 
-    // Créez task object
+    
 
-    // Ajoutez object au Array
+    
 
     // refresh tasks
     
