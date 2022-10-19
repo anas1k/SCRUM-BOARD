@@ -341,7 +341,7 @@
                                     required />
                             </div>
                             <div class="mb-0">
-                                <label for="taskType" class="col-form-label"
+                                <label for="taskType" class="col-form-label" required 
                                     >Type</label
                                 >
                                 <div class="form-check py-2 mx-3">
@@ -376,7 +376,7 @@
                                     required
                                     >Priority</label
                                 >
-                                <select class="form-select" id="taskPriority">
+                                <select class="form-select" id="taskPriority" required >
                                     <option value selected disabled>
                                         Please select
                                     </option>
@@ -386,10 +386,10 @@
                                 </select>
                             </div>
                             <div class="mb-0">
-                                <label for="taskStatus" class="col-form-label"
+                                <label for="taskStatus" class="col-form-label" 
                                     >Status</label
                                 >
-                                <select class="form-select" id="taskStatus">
+                                <select class="form-select" id="taskStatus" required >
                                     <option selected disabled>
                                         Please select
                                     </option>
@@ -416,24 +416,25 @@
                                 >
                                 <textarea
                                     class="form-control"
-                                    id="taskDate"
+                                    id="taskDescription"
+                                    required 
                                     rows="8"></textarea>
                             </div>
+                            <div class="modal-footer">
+                                <button
+                                    type="reset"
+                                    class="btn btn-light text-black"
+                                    data-bs-dismiss="modal">
+                                    Cancel
+                                </button>
+                                <button
+                                
+                                    type="submit"
+                                    class="btn btn-primary">
+                                    Save
+                                </button>
+                            </div>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button
-                            type="reset"
-                            class="btn btn-light text-black"
-                            data-bs-dismiss="modal">
-                            Cancel
-                        </button>
-                        <button
-                            type="submit"
-                            name="submitTask"
-                            class="btn btn-primary">
-                            Save
-                        </button>
                     </div>
                 </div>
             </div>

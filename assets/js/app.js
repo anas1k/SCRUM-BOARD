@@ -3,7 +3,6 @@
  * 
  */
 
-var allTasks =[];
 
 function createTask() {
     // initialiser task form
@@ -16,7 +15,7 @@ function createTask() {
 
 function saveTask() {
 
-    var form =document.querySelector("#from");
+    var form = document.querySelector("#form");
     form.addEventListener('submit', (e) => {
 
         // stop reload of form
@@ -24,7 +23,7 @@ function saveTask() {
 
         // getting inputs from form 
         var taskTitle = document.getElementById('taskTitle').value;
-        var taskType = document.getElementById('taskType').value;
+        var taskType = document.querySelector('input[name="type"]:checked').value;
         var taskPriority = document.getElementById('taskPriority').value;
         var taskStatus = document.getElementById('taskStatus').value;
         var taskDate = document.getElementById('taskDate').value;
@@ -38,18 +37,15 @@ function saveTask() {
             description: taskDescription,
         };
 
-        // add task to Array allTasks
-        allTasks.push(task);
+        // add task to tasks data
+        tasks.push(task);
 
         // empty inputs
-        taskTitle.value = "";
-        taskType.value = "";
-        taskPriority.value = "";
-        taskStatus.value = "";
-        taskDate.value = "";
-        taskDescription.value = "";
+        document.getElementById("taskTitle").value = "";
+        document.getElementById("taskDate").value = "";
+        document.getElementById("taskDescription").value = "";
 
-        initTaskForm();
+        reloadTasks();
 
     });
 
@@ -114,14 +110,18 @@ function initTaskForm() {
 }
 
 function reloadTasks() {
+
+    // empty tasks boxs 
     document.querySelector("#toDo-tasks").innerHTML = "";
     document.querySelector("#inProgress-tasks").innerHTML = "";
     document.querySelector("#done-tasks").innerHTML = "";
     
+    // declaring task containers
     let toDo = document.querySelector("#toDo-tasks"),
         inProgress = document.querySelector("#inProgress-tasks"),
         done = document.querySelector("#done-tasks");
 
+    // diplay all tasks available in data file 
     tasks.forEach((task) =>{
         if(task.status ==="To Do"){
             toDo.innerHTML +=
