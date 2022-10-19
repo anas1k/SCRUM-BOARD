@@ -50,11 +50,6 @@ function saveTask() {
 
     });
 
-    
-
-    
-
-    
 
     // refresh tasks
     
