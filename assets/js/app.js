@@ -14,7 +14,7 @@ function createTask() {
 }
 saveTask()
 function saveTask() {
-
+    // creating eventListener for form
     var form = document.querySelector("#form");
     form.addEventListener('submit', (e) => {
 
@@ -28,7 +28,7 @@ function saveTask() {
         var taskStatus = document.getElementById('taskStatus').value;
         var taskDate = document.getElementById('taskDate').value;
         var taskDescription = document.getElementById('taskDescription').value;
-        // Créez task object
+        // créez task object
         var task = {
             title: taskTitle,
             type: taskType,
@@ -37,7 +37,7 @@ function saveTask() {
             date: taskDate,
             description: taskDescription,
         };
-        
+        // afficher object dans 
         console.log(task);
 
         // add task to tasks data // Ajoutez object au Array
@@ -51,8 +51,6 @@ function saveTask() {
         // refresh tasks
         reloadTasks();
     });
-
-    
     
 }
 
