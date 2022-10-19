@@ -37,6 +37,7 @@ function saveTask() {
             date: taskDate,
             description: taskDescription,
         };
+        
         console.log(task);
 
         // add task to tasks data // Ajoutez object au Array
