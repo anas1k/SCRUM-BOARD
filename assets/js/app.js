@@ -37,7 +37,8 @@ function saveTask() {
             date: taskDate,
             description: taskDescription,
         };
-        console.log(task)
+        console.log(task);
+
         // add task to tasks data // Ajoutez object au Array
         tasks.push(task);
 
@@ -46,12 +47,11 @@ function saveTask() {
         document.getElementById("taskDate").value = "";
         document.getElementById("taskDescription").value = "";
 
+        // refresh tasks
         reloadTasks();
-
     });
 
-
-    // refresh tasks
+    
     
 }
 
