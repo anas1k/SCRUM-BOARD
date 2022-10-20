@@ -15,21 +15,21 @@ function createTask() {
 saveTask()
 function saveTask() {
     // creating eventListener for form
-    var form = document.querySelector("#form");
+    let form = document.querySelector("#form");
     form.addEventListener('submit', (e) => {
 
         // stop reload of form
         e.preventDefault();
 
         // getting inputs from form // Recuperer task attributes a partir les champs input
-        var taskTitle = document.getElementById('taskTitle').value;
-        var taskType = document.querySelector('input[name="taskType"]:checked').value;
-        var taskPriority = document.getElementById('taskPriority').value;
-        var taskStatus = document.getElementById('taskStatus').value;
-        var taskDate = document.getElementById('taskDate').value;
-        var taskDescription = document.getElementById('taskDescription').value;
+        let taskTitle = document.getElementById('taskTitle').value;
+        let taskType = document.querySelector('input[name="taskType"]:checked').value;
+        let taskPriority = document.getElementById('taskPriority').value;
+        let taskStatus = document.getElementById('taskStatus').value;
+        let taskDate = document.getElementById('taskDate').value;
+        let taskDescription = document.getElementById('taskDescription').value;
         // créez task object
-        var task = {
+        let task = {
             title: taskTitle,
             type: taskType,
             priority: taskPriority,
@@ -95,10 +95,6 @@ function deleteTask() {
 
 function initTaskForm() {
 
-    
-    
-
-
     // Clear task form from data
 
     // Hide all action buttons
@@ -117,10 +113,13 @@ function reloadTasks() {
         done = document.querySelector("#done-tasks");
 
     // diplay all tasks available in data file 
+    let i = 0, toDoCount = 0, inProgressCount = 0, doneCount = 0;
     tasks.forEach((task) =>{
-        if(task.status ==="To Do"){
+        if(task.status === "To Do"){
+            toDoCount ++;
             toDo.innerHTML +=
             `<button
+            onclick="update(${i})"
                 class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                 <div class="m-3">
                     <i
@@ -152,9 +151,11 @@ function reloadTasks() {
                 </div>
             </button>`
         }
-         else if (task.status ==="In Progress"){
+         else if (task.status === "In Progress"){
+            inProgressCount++;
             inProgress.innerHTML +=
             `<button
+            onclick="update(${i})"
                 class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                 <div class="m-3 rotate">
                     <i
@@ -189,9 +190,11 @@ function reloadTasks() {
                 </div>
             </button>`
             }
-         else if (task.status ==="Done"){
+         else if (task.status === "Done"){
+            doneCount++;
             done.innerHTML +=
             `<button
+            onclick="update(${i})"
                 class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                 <div class="m-3">
                     <i
@@ -227,10 +230,15 @@ function reloadTasks() {
             </button>`
             }
         
-    });
-        
-
+    i++;
+    
+});
+    console.log(tasks);
     // Remove tasks elements
 
     // Set Task count
+    document.getElementById("to-do-tasks-count").innerText = toDoCount;
+    document.getElementById("in-progress-tasks-count").innerText = inProgressCount;
+    document.getElementById("done-tasks-count").innerText = doneCount;
+    
 }
