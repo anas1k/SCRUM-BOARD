@@ -11,6 +11,7 @@ function createTask() {
     // Afficher le boutton save
     document.getElementById("save").style.display = "block";
     document.getElementById("editTask").style.display = "none";
+    
     // Ouvrir modal form
     $("#taskModal").modal("show");
 }
@@ -46,6 +47,8 @@ function saveTask() {
 }
 
 function getTask(index) {
+
+    // Save Button show 
     document.getElementById("save").style.display = "none";
     document.getElementById("editTask").style.display = "block";
 
@@ -64,8 +67,6 @@ function getTask(index) {
     document.getElementById("taskDate").value = tasks[index].date;
     document.getElementById("taskDescription").value = tasks[index].description;
     document.getElementById("id").value = index;
-
-    // Delete Button
 
     // Définir l’index en entrée cachée pour l’utiliser en Update et Delete
 
@@ -249,12 +250,8 @@ function reloadTasks() {
                 </div>
             </button>`
             }
-        
     i++;
-    
 });
-    // Remove tasks elements
-
     // Set Task count
     document.getElementById("to-do-tasks-count").innerText = toDoCount;
     document.getElementById("in-progress-tasks-count").innerText = inProgressCount;
