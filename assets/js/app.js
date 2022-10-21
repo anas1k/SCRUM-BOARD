@@ -11,7 +11,7 @@ function createTask() {
     // Afficher le boutton save
     document.getElementById("save").style.display = "block";
     document.getElementById("editTask").style.display = "none";
-    
+
     // Ouvrir modal form
     $("#taskModal").modal("show");
 }
@@ -61,18 +61,15 @@ function getTask(index) {
     } else {
         document.getElementById("feature").checked = true
     }
-    // document.querySelector('input[name="typeType"]:checked').value = tasks[index].type;
+
     document.getElementById("taskPriority").value = tasks[index].priority;
     document.getElementById("taskStatus").value = tasks[index].status;
     document.getElementById("taskDate").value = tasks[index].date;
     document.getElementById("taskDescription").value = tasks[index].description;
-    document.getElementById("id").value = index;
-
+    
     // Définir l’index en entrée cachée pour l’utiliser en Update et Delete
-
+    document.getElementById("id").value = index;
     // Definir FORM INPUTS
-
-    // Ouvrir Modal form
 }
 
 function updateTask() {
