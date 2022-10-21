@@ -6,28 +6,23 @@
 
 function createTask() {
     // initialiser task form
-
-    // Afficher le boutton save
-
-    // Ouvrir modal form
+    document.getElementById("form").reset();
     
+    // Afficher le boutton save
+    document.getElementById("save").style.display = "block";
+    document.getElementById("editTask").style.display = "none";
+    // Ouvrir modal form
+    $("#taskModal").modal("show");
 }
-saveTask()
 function saveTask() {
-    // creating eventListener for form
-    let form = document.querySelector("#form");
-    form.addEventListener('submit', (e) => {
-
-        // stop reload of form
-        e.preventDefault();
 
         // getting inputs from form // Recuperer task attributes a partir les champs input
-        let taskTitle = document.getElementById('taskTitle').value;
+        let taskTitle = document.getElementById('taskTitle').value,
+            taskPriority = document.getElementById('taskPriority').value,
+            taskStatus = document.getElementById('taskStatus').value,
+            taskDate = document.getElementById('taskDate').value,
+            taskDescription = document.getElementById('taskDescription').value;
         let taskType = document.querySelector('input[name="taskType"]:checked').value;
-        let taskPriority = document.getElementById('taskPriority').value;
-        let taskStatus = document.getElementById('taskStatus').value;
-        let taskDate = document.getElementById('taskDate').value;
-        let taskDescription = document.getElementById('taskDescription').value;
         // créez task object
         let task = {
             title: taskTitle,
@@ -37,27 +32,38 @@ function saveTask() {
             date: taskDate,
             description: taskDescription,
         };
-        // afficher object dans 
-        console.log(task);
 
         // add task to tasks data // Ajoutez object au Array
         tasks.push(task);
 
         // empty inputs
-        document.getElementById("taskTitle").value = "";
-        document.getElementById("taskDate").value = "";
-        document.getElementById("taskDescription").value = "";
+        document.getElementById("form").reset();
+        $("#taskModal").modal("hide");
 
         // refresh tasks
         reloadTasks();
-    });
-    
+
 }
 
-function editTask(index) {
-    // Initialisez task form
+function getTask(index) {
+    document.getElementById("save").style.display = "none";
+    document.getElementById("editTask").style.display = "block";
 
+    // Initialisez task form
+    $("#taskModal").modal("show");
     // Affichez updates
+    document.getElementById("taskTitle").value = tasks[index].title;
+    if (tasks[index].type == "Bug") {
+        document.getElementById("bug").checked = true
+    } else {
+        document.getElementById("feature").checked = true
+    }
+    // document.querySelector('input[name="typeType"]:checked').value = tasks[index].type;
+    document.getElementById("taskPriority").value = tasks[index].priority;
+    document.getElementById("taskStatus").value = tasks[index].status;
+    document.getElementById("taskDate").value = tasks[index].date;
+    document.getElementById("taskDescription").value = tasks[index].description;
+    document.getElementById("id").value = index;
 
     // Delete Button
 
@@ -70,25 +76,39 @@ function editTask(index) {
 
 function updateTask() {
     // GET TASK ATTRIBUTES FROM INPUTS
-
-    // Créez task object
-
+    let taskTitle = document.getElementById('taskTitle').value,
+        taskPriority = document.getElementById('taskPriority').value,
+        taskStatus = document.getElementById('taskStatus').value,
+        taskDate = document.getElementById('taskDate').value,
+        taskDescription = document.getElementById('taskDescription').value;
+    let taskType = document.querySelector('input[name="taskType"]:checked').value;
+    // créez task object
+    let task = {
+        title: taskTitle,
+        type: taskType,
+        priority: taskPriority,
+        status: taskStatus,
+        date: taskDate,
+        description: taskDescription,
+    };
     // Remplacer ancienne task par nouvelle task
-
+    let index = document.getElementById("id").value;
+    tasks[index]=task;
     // Fermer Modal form
-
+    $("#taskModal").modal("hide");
     // Refresh tasks
-    
+    reloadTasks();
 }
 
 function deleteTask() {
     // Get index of task in the array
-
+    let index = document.getElementById("id").value;
     // Remove task from array by index splice function
-
+    tasks.splice(index, 1);
     // close modal form
-
+    $("#taskModal").modal("hide");
     // refresh tasks
+    reloadTasks();
 }
 
 
@@ -119,7 +139,7 @@ function reloadTasks() {
             toDoCount ++;
             toDo.innerHTML +=
             `<button
-            onclick="update(${i})"
+            onclick="getTask(${i})"
                 class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                 <div class="m-3">
                     <i
@@ -155,7 +175,7 @@ function reloadTasks() {
             inProgressCount++;
             inProgress.innerHTML +=
             `<button
-            onclick="update(${i})"
+            onclick="getTask(${i})"
                 class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                 <div class="m-3 rotate">
                     <i
@@ -194,7 +214,7 @@ function reloadTasks() {
             doneCount++;
             done.innerHTML +=
             `<button
-            onclick="update(${i})"
+            onclick="getTask(${i})"
                 class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                 <div class="m-3">
                     <i
@@ -233,7 +253,6 @@ function reloadTasks() {
     i++;
     
 });
-    console.log(tasks);
     // Remove tasks elements
 
     // Set Task count
