@@ -17,7 +17,7 @@ function createTask() {
 }
 function saveTask() {
 
-        // getting inputs from form // Recuperer task attributes a partir les champs input
+        // getting inputs from form / Recuperer task attributes a partir les champs input
         let taskTitle = document.getElementById('taskTitle').value,
             taskPriority = document.getElementById('taskPriority').value,
             taskStatus = document.getElementById('taskStatus').value,
@@ -34,7 +34,7 @@ function saveTask() {
             description: taskDescription,
         };
 
-        // add task to tasks data // Ajoutez object au Array
+        // add task to tasks data / Ajoutez object au Array
         tasks.push(task);
 
         // empty inputs
@@ -61,7 +61,6 @@ function getTask(index) {
     } else {
         document.getElementById("feature").checked = true
     }
-
     document.getElementById("taskPriority").value = tasks[index].priority;
     document.getElementById("taskStatus").value = tasks[index].status;
     document.getElementById("taskDate").value = tasks[index].date;
@@ -69,7 +68,6 @@ function getTask(index) {
     
     // Définir l’index en entrée cachée pour l’utiliser en Update et Delete
     document.getElementById("id").value = index;
-    // Definir FORM INPUTS
 }
 
 function updateTask() {
@@ -80,6 +78,7 @@ function updateTask() {
         taskDate = document.getElementById('taskDate').value,
         taskDescription = document.getElementById('taskDescription').value;
     let taskType = document.querySelector('input[name="taskType"]:checked').value;
+
     // créez task object
     let task = {
         title: taskTitle,
@@ -92,8 +91,10 @@ function updateTask() {
     // Remplacer ancienne task par nouvelle task
     let index = document.getElementById("id").value;
     tasks[index]=task;
+
     // Fermer Modal form
     $("#taskModal").modal("hide");
+
     // Refresh tasks
     reloadTasks();
 }
@@ -101,10 +102,13 @@ function updateTask() {
 function deleteTask() {
     // Get index of task in the array
     let index = document.getElementById("id").value;
+
     // Remove task from array by index splice function
     tasks.splice(index, 1);
+
     // close modal form
     $("#taskModal").modal("hide");
+    
     // refresh tasks
     reloadTasks();
 }
@@ -150,7 +154,7 @@ function reloadTasks() {
                     <div class="description-max-width">
                         <div
                             class="fw-light text-secondary">
-                            ${task.date}
+                            #${i+1} created in ${task.date}
                         </div>
                         <div
                             class="text-truncate fw-light">
@@ -186,7 +190,7 @@ function reloadTasks() {
                     <div class="description-max-width">
                         <div
                             class="fw-light text-secondary">
-                            ${task.date}
+                            #${i+1} created in ${task.date}
                         </div>
                         <div
                             class="text-truncate fw-light">
@@ -225,7 +229,7 @@ function reloadTasks() {
                     <div class="description-max-width">
                         <div
                             class="fw-light text-secondary">
-                            ${task.date}
+                            #${i+1} created in ${task.date}  
                         </div>
                         <div
                             class="text-truncate fw-light">
