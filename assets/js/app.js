@@ -15,6 +15,7 @@ function createTask() {
     // Ouvrir modal form
     $("#taskModal").modal("show");
 }
+
 function saveTask() {
 
         // getting inputs from form / Recuperer task attributes a partir les champs input
@@ -108,12 +109,10 @@ function deleteTask() {
 
     // close modal form
     $("#taskModal").modal("hide");
-    
+
     // refresh tasks
     reloadTasks();
 }
-
-
 
 function initTaskForm() {
 
