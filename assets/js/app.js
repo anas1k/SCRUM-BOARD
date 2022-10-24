@@ -72,6 +72,7 @@ function getTask(index) {
 }
 
 function updateTask() {
+    
     // GET TASK ATTRIBUTES FROM INPUTS
     let taskTitle = document.getElementById('taskTitle').value,
         taskPriority = document.getElementById('taskPriority').value,

@@ -47,7 +47,7 @@
                     <div class="col-lg-4 mb-3 col-md-6">
                         <div class="card">
                             <div class="card-header bg-dark">
-                                <h4 class="text-white pt-1">To do (<span id="to-do-tasks-count">0</span>)</h4>
+                                <h4 class="text-white pt-2">To do (<span id="to-do-tasks-count">0</span>)</h4>
                             </div>
                             <div class="list-group list-group-flush" id="toDo-tasks">
                                 <!-- TO DO TASKS HERE -->
@@ -73,7 +73,7 @@
                     <div class="col-lg-4 mb-3 col-md-6">
                         <div class="card">
                             <div class="card-header bg-dark">
-                                <h4 class="text-white pt-1">In Progress (<span id="in-progress-tasks-count">0</span>)</h4>
+                                <h4 class="text-white pt-2">In Progress (<span id="in-progress-tasks-count">0</span>)</h4>
                             </div>
                             <div class="list-group list-group-flush" id="inProgress-tasks">
                                 <!-- IN PROGRESS TASKS HERE -->
@@ -97,7 +97,7 @@
                     <div class="col-lg-4 mb-3 col-md-6">
                         <div class="card">
                             <div class="card-header bg-dark">
-                                <h4 class="text-white pt-1">Done (<span id="done-tasks-count">0</span>)</h4>
+                                <h4 class="text-white pt-2">Done (<span id="done-tasks-count">0</span>)</h4>
                             </div>
                             <div class="list-group list-group-flush" id="done-tasks">
                                 <!-- DONE TASKS HERE -->
@@ -130,7 +130,7 @@
 
         <!-- TASK MODAL -->
         <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog mt-1 mb-1">
+            <div class="modal-dialog mt-3 mb-1">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Add Task</h1>
@@ -181,7 +181,7 @@
                                 <textarea class="form-control" id="taskDescription" required rows="8"></textarea>
                             </div>
                             <div class="modal-footer">
-                                <button type="reset" class="btn btn-light text-black" data-bs-dismiss="modal">Cancel</button>
+                                <button type="reset" class="btn btn-outline-dark text-black" data-bs-dismiss="modal">Cancel</button>
                                 <button id="save" type="button" onclick="saveTask()" class="btn btn-primary">Save</button>
                                 <div id="editTask" style="display: none">
                                     <button type="button" onclick="deleteTask()" class="btn btn-danger text-black">Delete</button>
@@ -206,6 +206,7 @@
         <!-- JavaScript Code Start -->
 
         <script>
+            // to reload tasks everytime the page reloads
             reloadTasks();
         </script>
 
