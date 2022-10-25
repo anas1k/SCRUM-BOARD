@@ -1,3 +1,10 @@
+<?php
+    //include file where functions are defined
+    include ('scripts.php');
+    $allTasks = getTasks();
+    print_r($allTasks);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -77,20 +84,22 @@
                             </div>
                             <div class="list-group list-group-flush" id="inProgress-tasks">
                                 <!-- IN PROGRESS TASKS HERE -->
+                                <?php //foreach ($allTasks as $i => $tasks) { ?>
                                 <button id="inProgress-box" class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                                     <div class="m-3 rotate">
                                         <i class="fa-lg fa-solid fa-circle-notch green"></i>
                                     </div>
                                     <div class="text-start">
-                                        <div class="fw-bolder">Describe steps to reproduce an issue</div>
+                                        <div class="fw-bolder"><?php echo $tasks['titre']; ?></div>
                                         <div class="description-max-width">
-                                            <div class="fw-light text-secondary">#6 created in 2022-10-08</div>
-                                            <div class="text-truncate fw-light" title="">including as many details as possible.</div>
+                                            <div class="fw-light text-secondary">#<?php echo $i." created in ".$tasks['date']; ?> </div>
+                                            <div class="text-truncate fw-light" title=""><?php echo $tasks['description']; ?></div>
                                         </div>
-                                        <span class="btn btn-primary px-1 py-0">High</span>
+                                        <span class="btn btn-primary px-1 py-0"><?php echo $tasks['']; ?></span>
                                         <span class="btn btn-gray-300 text-black px-1 py-0">Bug</span>
                                     </div>
                                 </button>
+                                <?php //} ?>
                             </div>
                         </div>
                     </div>
@@ -207,7 +216,7 @@
 
         <script>
             // to reload tasks everytime the page reloads
-            reloadTasks();
+           /*  reloadTasks(); */
         </script>
 
         <!-- JavaScript Code End -->

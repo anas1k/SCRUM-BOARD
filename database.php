@@ -1,5 +1,8 @@
-<?php 
-function connect(){
+<?php
+
+    function connect(){
+
+    //CONNECT TO MYSQL DATABASE USING MYSQLI
     $serv = "localhost";
     $user = "root";
     $password = "";
@@ -9,5 +12,7 @@ function connect(){
     if(!$con){
         die("Prb de connection :". $con -> connect_err);
     }
+
     return $con;
-}
+    }
+?>

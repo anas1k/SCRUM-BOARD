@@ -19,7 +19,7 @@ function createTask() {
 function saveTask() {
 
         // getting inputs from form / Recuperer task attributes a partir les champs input
-        let taskTitle = document.getElementById('taskTitle').value,
+        /* let taskTitle = document.getElementById('taskTitle').value,
             taskPriority = document.getElementById('taskPriority').value,
             taskStatus = document.getElementById('taskStatus').value,
             taskDate = document.getElementById('taskDate').value,
@@ -33,17 +33,17 @@ function saveTask() {
             status: taskStatus,
             date: taskDate,
             description: taskDescription,
-        };
+        }; */
 
         // add task to tasks data / Ajoutez object au Array
-        tasks.push(task);
+        /* tasks.push(task); */
 
         // empty inputs
         document.getElementById("form").reset();
         $("#taskModal").modal("hide");
-
+        
         // refresh tasks
-        reloadTasks();
+        /* reloadTasks(); */
 
 }
 
@@ -55,7 +55,7 @@ function getTask(index) {
 
     // Initialisez task form
     $("#taskModal").modal("show");
-    // Affichez updates
+   /*  // Affichez updates
     document.getElementById("taskTitle").value = tasks[index].title;
     if (tasks[index].type == "Bug") {
         document.getElementById("bug").checked = true
@@ -65,54 +65,54 @@ function getTask(index) {
     document.getElementById("taskPriority").value = tasks[index].priority;
     document.getElementById("taskStatus").value = tasks[index].status;
     document.getElementById("taskDate").value = tasks[index].date;
-    document.getElementById("taskDescription").value = tasks[index].description;
+    document.getElementById("taskDescription").value = tasks[index].description; */
     
     // Définir l’index en entrée cachée pour l’utiliser en Update et Delete
-    document.getElementById("id").value = index;
+    /* document.getElementById("id").value = index; */
 }
 
 function updateTask() {
     
     // GET TASK ATTRIBUTES FROM INPUTS
-    let taskTitle = document.getElementById('taskTitle').value,
+    /* let taskTitle = document.getElementById('taskTitle').value,
         taskPriority = document.getElementById('taskPriority').value,
         taskStatus = document.getElementById('taskStatus').value,
         taskDate = document.getElementById('taskDate').value,
         taskDescription = document.getElementById('taskDescription').value;
     let taskType = document.querySelector('input[name="taskType"]:checked').value;
-
+ */
     // créez task object
-    let task = {
+    /* let task = {
         title: taskTitle,
         type: taskType,
         priority: taskPriority,
         status: taskStatus,
         date: taskDate,
         description: taskDescription,
-    };
+    }; */
     // Remplacer ancienne task par nouvelle task
-    let index = document.getElementById("id").value;
-    tasks[index]=task;
+    /* let index = document.getElementById("id").value;
+    tasks[index]=task; */
 
     // Fermer Modal form
     $("#taskModal").modal("hide");
 
     // Refresh tasks
-    reloadTasks();
+    /* reloadTasks(); */
 }
 
 function deleteTask() {
     // Get index of task in the array
-    let index = document.getElementById("id").value;
+    /* let index = document.getElementById("id").value; */
 
     // Remove task from array by index splice function
-    tasks.splice(index, 1);
+    /* tasks.splice(index, 1); */
 
     // close modal form
     $("#taskModal").modal("hide");
 
     // refresh tasks
-    reloadTasks();
+    /* reloadTasks(); */
 }
 
 function initTaskForm() {
@@ -125,17 +125,17 @@ function initTaskForm() {
 function reloadTasks() {
 
     // empty tasks boxs 
-    document.querySelector("#toDo-tasks").innerHTML = "";
+    /* document.querySelector("#toDo-tasks").innerHTML = "";
     document.querySelector("#inProgress-tasks").innerHTML = "";
-    document.querySelector("#done-tasks").innerHTML = "";
+    document.querySelector("#done-tasks").innerHTML = ""; */
     
     // declaring task containers
-    let toDo = document.querySelector("#toDo-tasks"),
+    /* let toDo = document.querySelector("#toDo-tasks"),
         inProgress = document.querySelector("#inProgress-tasks"),
-        done = document.querySelector("#done-tasks");
+        done = document.querySelector("#done-tasks"); */
 
     // diplay all tasks available in data file 
-    let i = 0, toDoCount = 0, inProgressCount = 0, doneCount = 0;
+    /* let i = 0, toDoCount = 0, inProgressCount = 0, doneCount = 0;
     tasks.forEach((task) =>{
         if(task.status === "To Do"){
             toDoCount ++;
@@ -252,10 +252,10 @@ function reloadTasks() {
             </button>`
             }
     i++;
-});
+}); */
     // Set Task count
-    document.getElementById("to-do-tasks-count").innerText = toDoCount;
+    /* document.getElementById("to-do-tasks-count").innerText = toDoCount;
     document.getElementById("in-progress-tasks-count").innerText = inProgressCount;
-    document.getElementById("done-tasks-count").innerText = doneCount;
+    document.getElementById("done-tasks-count").innerText = doneCount; */
     
 }
