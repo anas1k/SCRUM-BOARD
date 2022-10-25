@@ -11,6 +11,7 @@
     if(isset($_POST['update']))      updateTask();
     if(isset($_POST['delete']))      deleteTask();
     
+    getTasks();
     function getTasks()
     {
         //CODE HERE
@@ -26,9 +27,9 @@
             st.name as nameStatus,
             pr.name as namePriority
             FROM tasks ts, types ty, statuses st, priorities pr
-            WHERE ty.id = typeTask 
-            AND st.id = statusTask
-            AND pr.id = priorityTask";
+            WHERE ty.id = ts.type_id
+            AND st.id = ts.priority_id
+            AND pr.id = ts.status_id";
         $result = connect() -> query($sql);
         
         return $result;
