@@ -2,7 +2,7 @@
     //include file where functions are defined
     include ('scripts.php');
     $allTasks = getTasks();
-    print_r($allTasks);
+    var_dump($allTasks);
 
 
     // Tasks To Do counter 
@@ -83,7 +83,9 @@
                             </div>
                             <div class="list-group list-group-flush" id="toDo-tasks">
                                 <!-- TO DO TASKS HERE -->
-                                <?php foreach ($allTasks as $i => $tasks) { ?>
+                                <?php foreach ($allTasks as $i => $tasks) { 
+                                        if($tasks['nameStatus'] === "To Do"){
+                                ?>
                                 <button class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                                     <div class="m-3">
                                         <i class="fa-lg fa-regular fa-circle-question green green"></i>
@@ -100,7 +102,8 @@
                                         </div>
                                     </div>
                                 </button>
-                                <?php } ?>
+                                <?php   } 
+                                    } ?>
                             </div>
                         </div>
                     </div>
@@ -111,7 +114,8 @@
                             </div>
                             <div class="list-group list-group-flush" id="inProgress-tasks">
                                 <!-- IN PROGRESS TASKS HERE -->
-                                <?php foreach ($allTasks as $i => $tasks) { ?>
+                                <?php foreach ($allTasks as $i => $tasks) { 
+                                    if($tasks['nameStatus'] == "In Progress"){?>
                                 <button id="inProgress-box" class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                                     <div class="m-3 rotate">
                                         <i class="fa-lg fa-solid fa-circle-notch green"></i>
@@ -126,7 +130,8 @@
                                         <span class="btn btn-gray-300 text-black px-1 py-0"><?php echo $tasks['nameType']; ?></span>
                                     </div>
                                 </button>
-                                <?php } ?>
+                                <?php   } 
+                                    } ?>
                             </div>
                         </div>
                     </div>
@@ -137,6 +142,7 @@
                             </div>
                             <div class="list-group list-group-flush" id="done-tasks">
                                 <!-- DONE TASKS HERE -->
+                                <!-- if($task['nameStatus'] == "Done"){ -->
                                 <button class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                                     <div class="m-3">
                                         <i class="fa-lg fa-regular fa-circle-check green"></i>

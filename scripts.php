@@ -28,10 +28,10 @@
             pr.name as namePriority
             FROM tasks ts, types ty, statuses st, priorities pr
             WHERE ty.id = ts.type_id
-            AND st.id = ts.priority_id
-            AND pr.id = ts.status_id;";
+            AND pr.id = ts.priority_id
+            AND st.id = ts.status_id;";
         $result = connect() -> query($sql);
-        
+
         echo "Fetch all tasks";
         return $result;
         
