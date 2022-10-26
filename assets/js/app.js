@@ -6,14 +6,14 @@
 
 function createTask() {
     // initialiser task form
-    document.getElementById("form").reset();
+    /* document.getElementById("form").reset(); */
     
     // Afficher le boutton save
     document.getElementById("save").style.display = "block";
     document.getElementById("editTask").style.display = "none";
 
     // Ouvrir modal form
-    $("#taskModal").modal("show");
+    /* $("#taskModal").modal("show"); */
 }
 
 function saveTask() {
@@ -39,8 +39,8 @@ function saveTask() {
         /* tasks.push(task); */
 
         // empty inputs
-        document.getElementById("form").reset();
-        $("#taskModal").modal("hide");
+        /* document.getElementById("form").reset(); */
+        /* $("#taskModal").modal("hide"); */
         
         // refresh tasks
         /* reloadTasks(); */
@@ -54,7 +54,7 @@ function getTask(index) {
     document.getElementById("editTask").style.display = "block";
 
     // Initialisez task form
-    $("#taskModal").modal("show");
+    /* $("#taskModal").modal("show"); */
    /*  // Affichez updates
     document.getElementById("taskTitle").value = tasks[index].title;
     if (tasks[index].type == "Bug") {
@@ -95,7 +95,7 @@ function updateTask() {
     tasks[index]=task; */
 
     // Fermer Modal form
-    $("#taskModal").modal("hide");
+    /* $("#taskModal").modal("hide"); */
 
     // Refresh tasks
     /* reloadTasks(); */
@@ -109,7 +109,7 @@ function deleteTask() {
     /* tasks.splice(index, 1); */
 
     // close modal form
-    $("#taskModal").modal("hide");
+    /* $("#taskModal").modal("hide"); */
 
     // refresh tasks
     /* reloadTasks(); */

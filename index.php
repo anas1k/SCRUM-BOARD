@@ -162,7 +162,7 @@
                         <form id="form" method="post">
                             <div class="mb-0">
                                 <label for="taskTitle" class="col-form-label">Title</label>
-                                <input type="text" class="form-control" id="taskTitle" required />
+                                <input type="text" class="form-control" id="taskTitle" name="taskTitle" required />
                             </div>
                             <div class="mb-0">
                                 <label for="taskType" class="col-form-label">Type</label>
@@ -177,7 +177,7 @@
                             </div>
                             <div class="mb-0">
                                 <label for="taskPriority" class="col-form-label">Priority</label>
-                                <select class="form-select" id="taskPriority" required>
+                                <select class="form-select" id="taskPriority" name="taskPriority" required>
                                     <option value selected disabled>Please select</option>
                                     <option value="4">Critical</option>
                                     <option value="3">High</option>
@@ -187,7 +187,7 @@
                             </div>
                             <div class="mb-0">
                                 <label for="taskStatus" class="col-form-label">Status</label>
-                                <select class="form-select" id="taskStatus" required>
+                                <select class="form-select" id="taskStatus" name="taskStatus" required>
                                     <option selected disabled>Please select</option>
                                     <option value="1">To Do</option>
                                     <option value="2">In Progress</option>
@@ -197,15 +197,15 @@
                             <input type="hidden" id="id" />
                             <div class="mb-0">
                                 <label for="taskDate" class="col-form-label">Date</label>
-                                <input class="form-control" type="date" required id="taskDate" />
+                                <input class="form-control" type="datetime-local" required id="taskDate" name="taskDate" />
                             </div>
                             <div class="mb-0">
                                 <label for="taskDate" class="col-form-label">Description</label>
-                                <textarea class="form-control" id="taskDescription" required rows="8"></textarea>
+                                <textarea class="form-control" id="taskDescription" required rows="8" name="taskDescription"></textarea>
                             </div>
                             <div class="modal-footer">
                                 <button type="reset" class="btn btn-outline-dark text-black" data-bs-dismiss="modal">Cancel</button>
-                                <button id="save" type="submit" onclick="saveTask()" class="btn btn-primary">Save</button>
+                                <button id="save" type="submit" name="addTaskForm"  class="btn btn-primary">Save</button>
                                 <div id="editTask" style="display: none">
                                     <button type="button" onclick="deleteTask()" class="btn btn-danger text-black">Delete</button>
                                     <button type="button" onclick="updateTask()" class="btn btn-warning text-black">Update</button>

@@ -44,8 +44,8 @@
             VALUES('$title','$type','$priority','$status','$date', '$description');";
 
         connect() -> query($sql);
-        return 1;
-        
+        return '1';
+
         $_SESSION['message'] = "Task has been added successfully !";
 		header('location: index.php');
     }
