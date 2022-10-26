@@ -28,6 +28,9 @@
             $doneCount++;
         }
     }
+
+    // Tasks Counter 
+    $allTasksCount = 1;
 ?>
 
 <!DOCTYPE html>
@@ -83,7 +86,7 @@
                             </div>
                             <div class="list-group list-group-flush" id="toDo-tasks">
                                 <!-- TO DO TASKS HERE -->
-                                <?php foreach ($allTasks as $i => $tasks) { 
+                                <?php foreach ($allTasks as $tasks) { 
                                         if($tasks['nameStatus'] === "To Do"){
                                 ?>
                                 <button class="d-flex list-group-item w-100 pb-2 py-2 px-1">
@@ -93,7 +96,7 @@
                                     <div class="text-start">
                                         <div class="fw-bolder" id="taskTitle"><?php echo $tasks['titleTask']; ?></div>
                                         <div class="description-max-width">
-                                            <div class="fw-light text-secondary" id="taskDate">#<?php echo ++$i ." created in ".$tasks['dateTask']; ?></div>
+                                            <div class="fw-light text-secondary" id="taskDate">#<?php echo $allTasksCount++ ." created in ".$tasks['dateTask']; ?></div>
                                             <div class="text-truncate fw-light" title="taskDescription"><?php echo $tasks['descriptionTask']; ?></div>
                                         </div>
                                         <div class="button">
@@ -114,8 +117,8 @@
                             </div>
                             <div class="list-group list-group-flush" id="inProgress-tasks">
                                 <!-- IN PROGRESS TASKS HERE -->
-                                <?php foreach ($allTasks as $i => $tasks) { 
-                                    if($tasks['nameStatus'] == "In Progress"){?>
+                                <?php foreach ($allTasks as $tasks) { 
+                                    if($tasks['nameStatus'] === "In Progress"){?>
                                 <button id="inProgress-box" class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                                     <div class="m-3 rotate">
                                         <i class="fa-lg fa-solid fa-circle-notch green"></i>
@@ -123,7 +126,7 @@
                                     <div class="text-start">
                                         <div class="fw-bolder"><?php echo $tasks['titleTask']; ?></div>
                                         <div class="description-max-width">
-                                            <div class="fw-light text-secondary">#<?php echo ++$i ." created in ".$tasks['dateTask']; ?></div>
+                                            <div class="fw-light text-secondary">#<?php echo $allTasksCount++ ." created in ".$tasks['dateTask']; ?></div>
                                             <div class="text-truncate fw-light" title=""><?php echo $tasks['descriptionTask']; ?></div>
                                         </div>
                                         <span class="btn btn-primary px-1 py-0"><?php echo $tasks['namePriority']; ?></span>
