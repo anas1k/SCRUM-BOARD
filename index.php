@@ -3,6 +3,31 @@
     include ('scripts.php');
     $allTasks = getTasks();
     print_r($allTasks);
+
+
+    // Tasks To Do counter 
+    $toDoCount = 0; 
+    foreach($allTasks as $task){
+        if($task['nameStatus'] == "To Do"){
+            $toDoCount++;
+        }
+    }
+
+    // Tasks In Progress counter 
+    $inProgressCount = 0; 
+    foreach($allTasks as $task){
+        if($task['nameStatus'] == "In Progress"){
+            $inProgressCount++;
+        }
+    }
+    
+    // Tasks Done counter 
+    $doneCount = 0; 
+    foreach($allTasks as $task){
+        if($task['nameStatus'] == "Done"){
+            $doneCount++;
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -54,36 +79,31 @@
                     <div class="col-lg-4 mb-3 col-md-6">
                         <div class="card">
                             <div class="card-header bg-dark">
-                                <h4 class="text-white pt-2">To do (<span id="to-do-tasks-count">0</span>)</h4>
+                                <h4 class="text-white pt-2">To do (<span id="to-do-tasks-count"><?php echo $toDoCount; ?></span>)</h4>
                             </div>
                             <div class="list-group list-group-flush" id="toDo-tasks">
                                 <!-- TO DO TASKS HERE -->
+                                <?php foreach ($allTasks as $i => $tasks) { ?>
                                 <button class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                                     <div class="m-3">
                                         <i class="fa-lg fa-regular fa-circle-question green green"></i>
                                     </div>
                                     <div class="text-start">
-                                        <div class="fw-bolder" id="taskTitle">Kee</div>
+                                        <div class="fw-bolder" id="taskTitle"><?php echo $tasks['titleTask']; ?></div>
                                         <div class="description-max-width">
-                                            <div class="fw-light text-secondary" id="taskDate">#1 cr</div>
-                                            <div class="text-truncate fw-light" title="taskDescription">There s</div>
+                                            <div class="fw-light text-secondary" id="taskDate">#<?php echo ++$i ." created in ".$tasks['dateTask']; ?></div>
+                                            <div class="text-truncate fw-light" title="taskDescription"><?php echo $tasks['descriptionTask']; ?></div>
                                         </div>
                                         <div class="button">
-                                            <span id="taskPriority" class="btn btn-primary px-1 py-0">High</span>
-                                            <span id="" class="btn btn-gray-300 text-black px-1 py-0">Feature</span>
+                                            <span id="taskPriority" class="btn btn-primary px-1 py-0"><?php echo $tasks['namePriority']; ?></span>
+                                            <span id="" class="btn btn-gray-300 text-black px-1 py-0"><?php echo $tasks['nameType']; ?></span>
                                         </div>
                                     </div>
                                 </button>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
-                    <?php $inProgressCount = 0; 
-                        foreach($allTasks as $task){
-                            if(task){
-                                $inProgressCount++;
-                            }
-                        }
-                    ?>
                     <div class="col-lg-4 mb-3 col-md-6">
                         <div class="card">
                             <div class="card-header bg-dark">
@@ -91,7 +111,7 @@
                             </div>
                             <div class="list-group list-group-flush" id="inProgress-tasks">
                                 <!-- IN PROGRESS TASKS HERE -->
-                                <?php foreach ($allTasks as $i => $tasks) { $inProgressCount++; ?>
+                                <?php foreach ($allTasks as $i => $tasks) { ?>
                                 <button id="inProgress-box" class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                                     <div class="m-3 rotate">
                                         <i class="fa-lg fa-solid fa-circle-notch green"></i>
@@ -99,7 +119,7 @@
                                     <div class="text-start">
                                         <div class="fw-bolder"><?php echo $tasks['titleTask']; ?></div>
                                         <div class="description-max-width">
-                                            <div class="fw-light text-secondary">#<?php echo ++$i ." created in ".$tasks['dateTask']; ?> </div>
+                                            <div class="fw-light text-secondary">#<?php echo ++$i ." created in ".$tasks['dateTask']; ?></div>
                                             <div class="text-truncate fw-light" title=""><?php echo $tasks['descriptionTask']; ?></div>
                                         </div>
                                         <span class="btn btn-primary px-1 py-0"><?php echo $tasks['namePriority']; ?></span>
@@ -113,7 +133,7 @@
                     <div class="col-lg-4 mb-3 col-md-6">
                         <div class="card">
                             <div class="card-header bg-dark">
-                                <h4 class="text-white pt-2">Done (<span id="done-tasks-count">0</span>)</h4>
+                                <h4 class="text-white pt-2">Done (<span id="done-tasks-count"><?php echo $doneCount; ?></span>)</h4>
                             </div>
                             <div class="list-group list-group-flush" id="done-tasks">
                                 <!-- DONE TASKS HERE -->
