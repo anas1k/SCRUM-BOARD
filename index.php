@@ -1,37 +1,9 @@
 <?php
     //include file where functions are defined
     include ('scripts.php');
-    $allTasks = getTasks();
+    include('controller.php');
 
 
-    // Tasks To Do counter 
-    $toDoCount = 0; 
-    foreach($allTasks as $task){
-        if($task['nameStatus'] == "To Do"){
-            $toDoCount++;
-        }
-    }
-
-    // Tasks In Progress counter 
-    $inProgressCount = 0; 
-    foreach($allTasks as $task){
-        if($task['nameStatus'] == "In Progress"){
-            $inProgressCount++;
-        }
-    }
-    
-    // Tasks Done counter 
-    $doneCount = 0; 
-    foreach($allTasks as $task){
-        if($task['nameStatus'] == "Done"){
-            $doneCount++;
-        }
-    }
-
-    // Tasks Counter 
-    $allTasksCount = 1;
-
-    
 ?>
 
 <!DOCTYPE html>
@@ -195,11 +167,11 @@
                             <div class="mb-0">
                                 <label for="taskType" class="col-form-label">Type</label>
                                 <div class="form-check py-2 mx-3">
-                                    <input class="form-check-input" type="radio" id="feature" name="taskType" value="Feature" />
+                                    <input class="form-check-input" type="radio" id="feature" name="taskType" value="2" />
                                     <label for="Feature" class="form-check-label">Feature</label>
                                 </div>
                                 <div class="form-check py-2 mx-3">
-                                    <input class="form-check-input" type="radio" id="bug" name="taskType" value="Bug" />
+                                    <input class="form-check-input" type="radio" id="bug" name="taskType" value="1" />
                                     <label for="Bug" class="form-check-label">Bug</label>
                                 </div>
                             </div>
@@ -207,18 +179,19 @@
                                 <label for="taskPriority" class="col-form-label">Priority</label>
                                 <select class="form-select" id="taskPriority" required>
                                     <option value selected disabled>Please select</option>
-                                    <option value="High">High</option>
-                                    <option value="Medium">Medium</option>
-                                    <option value="Low">Low</option>
+                                    <option value="4">Critical</option>
+                                    <option value="3">High</option>
+                                    <option value="2">Medium</option>
+                                    <option value="1">Low</option>
                                 </select>
                             </div>
                             <div class="mb-0">
                                 <label for="taskStatus" class="col-form-label">Status</label>
                                 <select class="form-select" id="taskStatus" required>
                                     <option selected disabled>Please select</option>
-                                    <option value="To Do">To Do</option>
-                                    <option value="In Progress">In Progress</option>
-                                    <option value="Done">Done</option>
+                                    <option value="1">To Do</option>
+                                    <option value="2">In Progress</option>
+                                    <option value="3">Done</option>
                                 </select>
                             </div>
                             <input type="hidden" id="id" />
