@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mar. 25 oct. 2022 à 22:21
--- Version du serveur : 8.0.27
--- Version de PHP : 7.4.26
+-- Host: localhost:3306
+-- Generation Time: Oct 26, 2022 at 12:43 AM
+-- Server version: 5.7.33
+-- PHP Version: 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,26 +18,22 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `youcodescumboard`
+-- Database: `youcodescrumboard`
 --
-CREATE DATABASE IF NOT EXISTS `youcodescumboard` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `youcodescumboard`;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `priorities`
+-- Table structure for table `priorities`
 --
 
-DROP TABLE IF EXISTS `priorities`;
-CREATE TABLE IF NOT EXISTS `priorities` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `priorities` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `priorities`
+-- Dumping data for table `priorities`
 --
 
 INSERT INTO `priorities` (`id`, `name`) VALUES
@@ -49,18 +45,16 @@ INSERT INTO `priorities` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `statuses`
+-- Table structure for table `statuses`
 --
 
-DROP TABLE IF EXISTS `statuses`;
-CREATE TABLE IF NOT EXISTS `statuses` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `statuses` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `statuses`
+-- Dumping data for table `statuses`
 --
 
 INSERT INTO `statuses` (`id`, `name`) VALUES
@@ -71,46 +65,41 @@ INSERT INTO `statuses` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tasks`
+-- Table structure for table `tasks`
 --
 
-DROP TABLE IF EXISTS `tasks`;
-CREATE TABLE IF NOT EXISTS `tasks` (
-  `id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tasks` (
+  `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `type_id` int NOT NULL,
-  `priority_id` int NOT NULL,
-  `status_id` int NOT NULL,
+  `type_id` int(11) NOT NULL,
+  `priority_id` int(11) NOT NULL,
+  `status_id` int(11) NOT NULL,
   `task_datetime` datetime NOT NULL,
-  `description` text NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `type_id` (`type_id`),
-  KEY `priority_id` (`priority_id`),
-  KEY `status_id` (`status_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+  `description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `tasks`
+-- Dumping data for table `tasks`
 --
 
 INSERT INTO `tasks` (`id`, `title`, `type_id`, `priority_id`, `status_id`, `task_datetime`, `description`) VALUES
-(1, 'just for test', 1, 2, 2, '2022-10-25 21:43:45', 'lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that ');
+(1, 'just for test', 1, 2, 2, '2022-10-25 21:43:45', 'lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that '),
+(2, 'test 2', 1, 4, 1, '2022-10-27 01:34:38', 'hs dfghsdfg\r\nsdfgsafdg\r\nasfg\r\ns\r\nfg\r\nsf\r\ngs'),
+(3, 'test 3', 2, 2, 3, '2022-10-28 01:35:12', ' adfasdfga\r\ndsfg\r\nad\r\nsf\r\nad\r\nsf\r\nASDG');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `types`
+-- Table structure for table `types`
 --
 
-DROP TABLE IF EXISTS `types`;
-CREATE TABLE IF NOT EXISTS `types` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `types` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `types`
+-- Dumping data for table `types`
 --
 
 INSERT INTO `types` (`id`, `name`) VALUES
@@ -118,11 +107,70 @@ INSERT INTO `types` (`id`, `name`) VALUES
 (2, 'Feature');
 
 --
--- Contraintes pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Contraintes pour la table `tasks`
+-- Indexes for table `priorities`
+--
+ALTER TABLE `priorities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `statuses`
+--
+ALTER TABLE `statuses`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tasks`
+--
+ALTER TABLE `tasks`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `type_id` (`type_id`),
+  ADD KEY `priority_id` (`priority_id`),
+  ADD KEY `status_id` (`status_id`);
+
+--
+-- Indexes for table `types`
+--
+ALTER TABLE `types`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `priorities`
+--
+ALTER TABLE `priorities`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `statuses`
+--
+ALTER TABLE `statuses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tasks`
+--
+ALTER TABLE `tasks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `types`
+--
+ALTER TABLE `types`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tasks`
 --
 ALTER TABLE `tasks`
   ADD CONSTRAINT `tasks_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
