@@ -11,7 +11,6 @@
     if(isset($_POST['update']))      updateTask();
     if(isset($_POST['delete']))      deleteTask();
     
-    getTasks();
     function getTasks()
     {
         //CODE HERE
@@ -32,16 +31,20 @@
             AND st.id = ts.status_id;";
         $result = connect() -> query($sql);
 
-        echo "Fetch all tasks";
+        $_SESSION['message'] = "Fetch all tasks";
         return $result;
-        
     }
 
 
-    function saveTask()
+    function saveTask($title, $type, $priority, $status, $date, $description)
     {
         //CODE HERE
         //SQL INSERT
+        $sql = "INSERT INTO tasks(title, type_id, priority_id, status_id, task_datetime, description) 
+            VALUES('$title','$type','$priority','$status','$date', '$description');";
+
+        connect() -> query($sql);
+        return 1;
         $_SESSION['message'] = "Task has been added successfully !";
 		header('location: index.php');
     }

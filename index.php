@@ -2,7 +2,6 @@
     //include file where functions are defined
     include ('scripts.php');
     $allTasks = getTasks();
-    var_dump($allTasks);
 
 
     // Tasks To Do counter 
@@ -31,6 +30,8 @@
 
     // Tasks Counter 
     $allTasksCount = 1;
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -145,21 +146,25 @@
                             </div>
                             <div class="list-group list-group-flush" id="done-tasks">
                                 <!-- DONE TASKS HERE -->
-                                <!-- if($task['nameStatus'] == "Done"){ -->
+                                <?php foreach ($allTasks as $tasks) { 
+                                        if($tasks['nameStatus'] === "Done"){
+                                ?>
                                 <button class="d-flex list-group-item w-100 pb-2 py-2 px-1">
                                     <div class="m-3">
                                         <i class="fa-lg fa-regular fa-circle-check green"></i>
                                     </div>
                                     <div class="text-start">
-                                        <div class="fw-bolder">Provide access to logs</div>
+                                        <div class="fw-bolder"><?php echo $tasks['titleTask']; ?></div>
                                         <div class="description-max-width">
-                                            <div class="fw-light text-secondary">#10 created in 2022-10-08</div>
+                                            <div class="fw-light text-secondary">#<?php echo $allTasksCount++ ." created in ".$tasks['dateTask']; ?></div>
                                             <div class="text-truncate fw-light" title="as they can be helpful in reproducing the steps that caused the problem in the first place.">as they can be helpful in reproducing the steps that ca...</div>
                                         </div>
-                                        <span class="btn btn-primary px-1 py-0">High</span>
-                                        <span class="btn btn-gray-300 text-black px-1 py-0">Bug</span>
+                                        <span class="btn btn-primary px-1 py-0"><?php echo $tasks['namePriority']; ?></span>
+                                        <span class="btn btn-gray-300 text-black px-1 py-0"><?php echo $tasks['nameType']; ?></span>
                                     </div>
                                 </button>
+                                <?php   } 
+                                    } ?>
                             </div>
                         </div>
                     </div>
