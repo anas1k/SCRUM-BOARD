@@ -50,12 +50,17 @@
 		header('location: index.php');
     }
 
-    function updateTask()
+    function updateTask($id, $title, $type, $priority, $status, $date, $description)
     {
         //CODE HERE
         //SQL UPDATE
+        $sql= "UDPATE tasks SET title = '$title', type_id = '$type', priority_id = '$priority', 
+            status_id = '$status', task_datetime = '$date', description = '$description' WHERE id = '$id'";
+        connect() -> query($sql);
+        
         $_SESSION['message'] = "Task has been updated successfully !";
 		header('location: index.php');
+        return '1';
     }
 
     function deleteTask()
