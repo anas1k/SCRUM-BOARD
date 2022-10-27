@@ -13,7 +13,7 @@ function createTask() {
     document.getElementById("editTask").style.display = "none";
 
     // Ouvrir modal form
-    /* $("#taskModal").modal("show"); */
+    $("#taskModal").modal("show");
 }
 
 function saveTask() {

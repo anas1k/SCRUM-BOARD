@@ -44,10 +44,10 @@
                     </div>
 
                     <div class="text-end button">
-                        <button class="btn rounded-pill btn-primary" onclick="createTask()">
+                        <a class="btn rounded-pill btn-primary" data-bs-toggle="modal" data-bs-target="#taskModal">
                             <i class="fa fa-plus fa-lg"></i>
                             Add Task
-                        </button>
+                        </a>
                     </div>
                 </div>
 
