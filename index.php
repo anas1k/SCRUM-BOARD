@@ -130,12 +130,13 @@
                                     <div class="text-start">
                                         <div class="fw-bolder" id="taskTitle<?= $tasks['idTask'] ?>" ><?php echo $tasks['titleTask']; ?></div>
                                         <div class="description-max-width">
-                                            <div class="fw-light text-secondary" id="taskDate<?= $tasks['idTask'] ?>" value="<?php echo $tasks['dateTask']; ?>">#<?php echo $allTasksCount++ ." created in ".$tasks['dateTask']; ?></div>
+                                            <div class="fw-light text-secondary" id="taskDate<?= $tasks['idTask'] ?>" value="<?php echo $tasks['dateTask']; ?>">
+                                                #<?php echo $allTasksCount++ ." created in ".$tasks['dateTask']; ?></div>
                                             <div class="text-truncate fw-light" id="taskDescription<?= $tasks['idTask'] ?>"><?php echo $tasks['descriptionTask']; ?></div>
                                         </div>
                                         <span class="btn btn-primary px-1 py-0" id="taskPriority<?= $tasks['idTask'] ?>"><?php echo $tasks['namePriority']; ?></span>
                                         <span class="btn btn-gray-300 text-black px-1 py-0" id="taskType<?= $tasks['idTask'] ?>"><?php echo $tasks['nameType']; ?></span>
-                                        <!-- <span style="display:hidden" id="taskId" value="<?php// echo $tasks['idTask']; ?>"></span> -->
+                                        <span style="display:hidden" id="taskStatus<?php echo $tasks['idTask']; ?>" value=""></span>
                                     </div>
                                 </button>
                                 <?php   } 
@@ -204,7 +205,7 @@
                             </div>
                             <div class="mb-0">
                                 <label for="taskDate" class="col-form-label">Description</label>
-                                <textarea class="form-control" id="taskDescription" required rows="8" name="DescriptionInput"></textarea>
+                                <textarea class="form-control" id="DescriptionInput" required rows="8" name="taskDescription"></textarea>
                             </div>
                             <div class="modal-footer">
                                 <button type="reset" class="btn btn-outline-dark text-black" data-bs-dismiss="modal">Cancel</button>

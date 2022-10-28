@@ -58,7 +58,16 @@ function getTask(id) {
     console.log(document.querySelector(`#taskTitle${id}`));
 
     document.getElementById("TitleInput").value = document.querySelector(`#taskTitle${id}`).innerText;
-    document.getElementById("TitleInput").value = document.querySelector(`#taskTitle${id}`).innerText;
+    if ( document.querySelector(`#taskType${id}`).innerText == "Bug") {
+        document.getElementById("bug").checked = true
+    } else {
+        document.getElementById("feature").checked = true
+    }
+    document.getElementById("StatusInput").value = document.querySelector(`#taskStatus${id}`).value;
+    document.getElementById("PriorityInput").value = document.querySelector(`#taskPriority${id}`).innerText;
+    
+    document.getElementById("DateInput").value = document.querySelector(`#taskDate${id}`).innerText;
+    document.getElementById("DescriptionInput").value = document.querySelector(`#taskDescription${id}`).innerText;
 
 
 
