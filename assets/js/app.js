@@ -63,7 +63,7 @@ function getTask(id) {
     } else {
         document.getElementById("feature").checked = true
     }
-    document.getElementById("StatusInput").value = document.querySelector(`#taskStatus${id}`).value;
+    document.getElementById("StatusInput").value = document.querySelectorAll(`#taskStatus${id}`).value;
     document.getElementById("PriorityInput").value = document.querySelector(`#taskPriority${id}`).innerText;
     
     document.getElementById("DateInput").value = document.querySelector(`#taskDate${id}`).innerText;
