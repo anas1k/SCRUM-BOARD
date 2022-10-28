@@ -47,16 +47,28 @@ function saveTask() {
 
 }
 
-function getTask(index) {
+function getTask(id) {
 
     // Save Button show 
     document.getElementById("save").style.display = "none";
     document.getElementById("editTask").style.display = "block";
 
     // Initialisez task form
-    /* $("#taskModal").modal("show"); */
-   /*  // Affichez updates
-    document.getElementById("taskTitle").value = tasks[index].title;
+    $("#taskModal").modal("show");
+    console.log(document.querySelector(`#taskTitle${id}`));
+
+    document.getElementById("TitleInput").value = document.querySelector(`#taskTitle${id}`).innerText;
+    document.getElementById("TitleInput").value = document.querySelector(`#taskTitle${id}`).innerText;
+
+
+
+
+
+
+
+
+    // Affichez updates
+   /*  document.getElementById("taskTitle").value = tasks[index].title;
     if (tasks[index].type == "Bug") {
         document.getElementById("bug").checked = true
     } else {
@@ -79,8 +91,8 @@ function updateTask() {
         taskStatus = document.getElementById('taskStatus').value,
         taskDate = document.getElementById('taskDate').value,
         taskDescription = document.getElementById('taskDescription').value;
-    let taskType = document.querySelector('input[name="taskType"]:checked').value;
- */
+    let taskType = document.querySelector('input[name="taskType"]:checked').value;*/
+
     // créez task object
     /* let task = {
         title: taskTitle,

@@ -62,19 +62,20 @@
                                 <?php foreach ($allTasks as $tasks) { 
                                         if($tasks['nameStatus'] === "To Do"){
                                 ?>
-                                <button class="d-flex list-group-item w-100 pb-2 py-2 px-1">
+                                <button class="d-flex list-group-item w-100 pb-2 py-2 px-1" href="index.php?id=<?php echo $tasks['id']; ?>">
                                     <div class="m-3">
                                         <i class="fa-lg fa-regular fa-circle-question green green"></i>
                                     </div>
                                     <div class="text-start">
-                                        <div class="fw-bolder" id="taskTitle"><?php echo $tasks['titleTask']; ?></div>
+                                        <div class="fw-bolder" id="Title"><?php echo $tasks['titleTask']; ?></div>
                                         <div class="description-max-width">
-                                            <div class="fw-light text-secondary" id="taskDate">#<?php echo $allTasksCount++ ." created in ".$tasks['dateTask']; ?></div>
-                                            <div class="text-truncate fw-light" title="taskDescription"><?php echo $tasks['descriptionTask']; ?></div>
+                                            <div class="fw-light text-secondary" id="Date">#<?php echo $allTasksCount++ ." created in ".$tasks['dateTask']; ?></div>
+                                            <div class="text-truncate fw-light" title="Description"><?php echo $tasks['descriptionTask']; ?></div>
                                         </div>
                                         <div class="button">
-                                            <span id="taskPriority" class="btn btn-primary px-1 py-0"><?php echo $tasks['namePriority']; ?></span>
-                                            <span id="" class="btn btn-gray-300 text-black px-1 py-0"><?php echo $tasks['nameType']; ?></span>
+                                            <span id="Priority" class="btn btn-primary px-1 py-0"><?php echo $tasks['namePriority']; ?></span>
+                                            <span id="Type" class="btn btn-gray-300 text-black px-1 py-0"><?php echo $tasks['nameType']; ?></span>
+                                            <span style="display:hidden" id="taskId" value="<?php echo $tasks['idTask']; ?>"></span>
                                         </div>
                                     </div>
                                 </button>
@@ -104,6 +105,7 @@
                                         </div>
                                         <span class="btn btn-primary px-1 py-0"><?php echo $tasks['namePriority']; ?></span>
                                         <span class="btn btn-gray-300 text-black px-1 py-0"><?php echo $tasks['nameType']; ?></span>
+                                        <span style="display:hidden" id="taskId" value="<?php echo $tasks['idTask']; ?>"></span>
                                     </div>
                                 </button>
                                 <?php   } 
@@ -121,18 +123,19 @@
                                 <?php foreach ($allTasks as $tasks) { 
                                         if($tasks['nameStatus'] === "Done"){
                                 ?>
-                                <button class="d-flex list-group-item w-100 pb-2 py-2 px-1">
+                                <button class="d-flex list-group-item w-100 pb-2 py-2 px-1" onclick="getTask(<?= $tasks['idTask'] ?>)">
                                     <div class="m-3">
                                         <i class="fa-lg fa-regular fa-circle-check green"></i>
                                     </div>
                                     <div class="text-start">
-                                        <div class="fw-bolder"><?php echo $tasks['titleTask']; ?></div>
+                                        <div class="fw-bolder" id="taskTitle<?= $tasks['idTask'] ?>" ><?php echo $tasks['titleTask']; ?></div>
                                         <div class="description-max-width">
-                                            <div class="fw-light text-secondary">#<?php echo $allTasksCount++ ." created in ".$tasks['dateTask']; ?></div>
-                                            <div class="text-truncate fw-light" title="as they can be helpful in reproducing the steps that caused the problem in the first place.">as they can be helpful in reproducing the steps that ca...</div>
+                                            <div class="fw-light text-secondary" id="taskDate<?= $tasks['idTask'] ?>" value="<?php echo $tasks['dateTask']; ?>">#<?php echo $allTasksCount++ ." created in ".$tasks['dateTask']; ?></div>
+                                            <div class="text-truncate fw-light" id="taskDescription<?= $tasks['idTask'] ?>"><?php echo $tasks['descriptionTask']; ?></div>
                                         </div>
-                                        <span class="btn btn-primary px-1 py-0"><?php echo $tasks['namePriority']; ?></span>
-                                        <span class="btn btn-gray-300 text-black px-1 py-0"><?php echo $tasks['nameType']; ?></span>
+                                        <span class="btn btn-primary px-1 py-0" id="taskPriority<?= $tasks['idTask'] ?>"><?php echo $tasks['namePriority']; ?></span>
+                                        <span class="btn btn-gray-300 text-black px-1 py-0" id="taskType<?= $tasks['idTask'] ?>"><?php echo $tasks['nameType']; ?></span>
+                                        <!-- <span style="display:hidden" id="taskId" value="<?php// echo $tasks['idTask']; ?>"></span> -->
                                     </div>
                                 </button>
                                 <?php   } 
@@ -162,22 +165,22 @@
                         <form id="form" method="post">
                             <div class="mb-0">
                                 <label for="taskTitle" class="col-form-label">Title</label>
-                                <input type="text" class="form-control" id="taskTitle" name="taskTitle" required />
+                                <input type="text" class="form-control" id="TitleInput" name="taskTitle" required />
                             </div>
                             <div class="mb-0">
                                 <label for="taskType" class="col-form-label">Type</label>
                                 <div class="form-check py-2 mx-3">
-                                    <input class="form-check-input" type="radio" id="feature" name="taskType" value="2" />
+                                    <input class="form-check-input" type="radio" id="feature" name="TypeInput" value="2" />
                                     <label for="Feature" class="form-check-label">Feature</label>
                                 </div>
                                 <div class="form-check py-2 mx-3">
-                                    <input class="form-check-input" type="radio" id="bug" name="taskType" value="1" />
+                                    <input class="form-check-input" type="radio" id="bug" name="TypeInput" value="1" />
                                     <label for="Bug" class="form-check-label">Bug</label>
                                 </div>
                             </div>
                             <div class="mb-0">
                                 <label for="taskPriority" class="col-form-label">Priority</label>
-                                <select class="form-select" id="taskPriority" name="taskPriority" required>
+                                <select class="form-select" id="PriorityInput" name="Priority" required>
                                     <option value selected disabled>Please select</option>
                                     <option value="4">Critical</option>
                                     <option value="3">High</option>
@@ -187,28 +190,28 @@
                             </div>
                             <div class="mb-0">
                                 <label for="taskStatus" class="col-form-label">Status</label>
-                                <select class="form-select" id="taskStatus" name="taskStatus" required>
+                                <select class="form-select" id="StatusInput" name="taskStatus" required>
                                     <option selected disabled>Please select</option>
                                     <option value="1">To Do</option>
                                     <option value="2">In Progress</option>
                                     <option value="3">Done</option>
                                 </select>
                             </div>
-                            <input type="hidden" id="id" />
+                            <input type="hidden" id="id" value />
                             <div class="mb-0">
                                 <label for="taskDate" class="col-form-label">Date</label>
-                                <input class="form-control" type="datetime-local" required id="taskDate" name="taskDate" />
+                                <input class="form-control" type="datetime-local" required id="DateInput" name="taskDate" />
                             </div>
                             <div class="mb-0">
                                 <label for="taskDate" class="col-form-label">Description</label>
-                                <textarea class="form-control" id="taskDescription" required rows="8" name="taskDescription"></textarea>
+                                <textarea class="form-control" id="taskDescription" required rows="8" name="DescriptionInput"></textarea>
                             </div>
                             <div class="modal-footer">
                                 <button type="reset" class="btn btn-outline-dark text-black" data-bs-dismiss="modal">Cancel</button>
                                 <button id="save" type="submit" name="addTaskForm"  class="btn btn-primary">Save</button>
                                 <div id="editTask" style="display: none">
-                                    <button type="button" onclick="deleteTask()" class="btn btn-danger text-black">Delete</button>
-                                    <button type="button" onclick="updateTask()" class="btn btn-warning text-black">Update</button>
+                                    <button type="submit" onclick="deleteTask()" class="btn btn-danger text-black">Delete</button>
+                                    <button type="submit" onclick="updateTask()" class="btn btn-warning text-black">Update</button>
                                 </div>
                             </div>
                         </form>

@@ -42,12 +42,12 @@
         //SQL INSERT
         $sql = "INSERT INTO tasks(title, type_id, priority_id, status_id, task_datetime, description) 
             VALUES('$title','$type','$priority','$status','$date', '$description');";
-
+        
         connect() -> query($sql);
-        return '1';
 
         $_SESSION['message'] = "Task has been added successfully !";
 		header('location: index.php');
+        return '1';
     }
 
     function updateTask($id, $title, $type, $priority, $status, $date, $description)
@@ -57,7 +57,7 @@
         $sql= "UDPATE tasks SET title = '$title', type_id = '$type', priority_id = '$priority', 
             status_id = '$status', task_datetime = '$date', description = '$description' WHERE id = '$id'";
         connect() -> query($sql);
-        
+
         $_SESSION['message'] = "Task has been updated successfully !";
 		header('location: index.php');
         return '1';
