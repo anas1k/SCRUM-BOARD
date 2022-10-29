@@ -76,16 +76,9 @@ function getTask(id,date) {
     }
    /*  document.getElementById("PriorityInput").value = document.querySelector(`#taskPriority${id}`).innerText; */
     
-    document.getElementById("DateInputt").value = date;
+    document.getElementById("DateInput").value = date;
     document.getElementById("DescriptionInput").value = document.querySelector(`#taskDescription${id}`).innerText;
-
-
-
-
-
-
-
-
+    document.getElementById("IdInput").value = id;
     // Affichez updates
    /*  document.getElementById("taskTitle").value = tasks[index].title;
     if (tasks[index].type == "Bug") {

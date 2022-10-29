@@ -7,9 +7,40 @@
     session_start();
 
     //ROUTING
-    if(isset($_POST['save']))        saveTask();
-    if(isset($_POST['update']))      updateTask();
-    if(isset($_POST['delete']))      deleteTask();
+    if(isset($_POST['addTaskForm'])){    
+
+        $title = $_POST['titleInput'];
+        $type = $_POST['typeInput'];
+        $priority = $_POST['priorityInput'];
+        $status = $_POST['statusInput'];
+        $date = $_POST['dateInput'];
+        $description = $_POST['descriptionInput'];
+
+        /* $result =  */saveTask($title, $type, $priority, $status, $date, $description);
+        /* if($result === '1'){
+            header('Location: index.php');
+        } */    
+    }
+
+    if(isset($_POST['updateTaskForm'])){
+
+        $id = $_POST['idInput'];
+        $title = $_POST['titleInput'];
+        $type = $_POST['typeInput'];
+        $priority = $_POST['priorityInput'];
+        $status = $_POST['statusInput'];
+        $date = $_POST['dateInput'];
+        $description = $_POST['descriptionInput'];
+        
+        updateTask($id, $title, $type, $priority, $status, $date, $description);
+    }
+    
+    if(isset($_POST['deleteTaskFrom'])){
+
+        $id = $_POST['idInput'];
+
+        deleteTask($id);
+    }
     
     function getTasks()
     {
@@ -47,26 +78,29 @@
 
         $_SESSION['message'] = "Task has been added successfully !";
 		header('location: index.php');
-        return '1';
+        /* return '1'; */
     }
 
     function updateTask($id, $title, $type, $priority, $status, $date, $description)
     {
         //CODE HERE
         //SQL UPDATE
-        $sql= "UDPATE tasks SET title = '$title', type_id = '$type', priority_id = '$priority', 
-            status_id = '$status', task_datetime = '$date', description = '$description' WHERE id = '$id'";
+        $sql= "UPDATE tasks SET title = '$title', type_id = '$type', priority_id = '$priority', 
+            status_id = '$status', task_datetime = '$date', description = '$description' WHERE id = '$id';";
         connect() -> query($sql);
 
         $_SESSION['message'] = "Task has been updated successfully !";
 		header('location: index.php');
-        return '1';
+        /* return '1'; */
     }
 
-    function deleteTask()
+    function deleteTask($id)
     {
         //CODE HERE
         //SQL DELETE
+        $sql="DELETE FROM tasks WHERE id='$id'";
+        connect() -> query($sql);
+
         $_SESSION['message'] = "Task has been deleted successfully !";
 		header('location: index.php');
     }
