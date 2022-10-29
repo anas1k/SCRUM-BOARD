@@ -44,7 +44,7 @@
                     </div>
 
                     <div class="text-end button">
-                        <a class="btn rounded-pill btn-primary" data-bs-toggle="modal" data-bs-target="#taskModal">
+                        <a class="btn rounded-pill btn-primary" onclick="createTask()" >
                             <i class="fa fa-plus fa-lg"></i>
                             Add Task
                         </a>
@@ -62,7 +62,7 @@
                                 <?php foreach ($allTasks as $tasks) { 
                                         if($tasks['nameStatus'] === "To Do"){
                                 ?>
-                                <button class="d-flex list-group-item w-100 pb-2 py-2 px-1" href="index.php?id=<?php echo $tasks['id']; ?>">
+                                <button class="d-flex list-group-item w-100 pb-2 py-2 px-1" ">
                                     <div class="m-3">
                                         <i class="fa-lg fa-regular fa-circle-question green green"></i>
                                     </div>
@@ -123,7 +123,7 @@
                                 <?php foreach ($allTasks as $tasks) { 
                                         if($tasks['nameStatus'] === "Done"){
                                 ?>
-                                <button class="d-flex list-group-item w-100 pb-2 py-2 px-1" onclick="getTask(<?= $tasks['idTask'] ?>)">
+                                <button class="d-flex list-group-item w-100 pb-2 py-2 px-1" onclick="getTask(<?php echo $tasks['idTask']; ?>,<?php echo $tasks['dateTask']; ?>)">
                                     <div class="m-3">
                                         <i class="fa-lg fa-regular fa-circle-check green"></i>
                                     </div>
@@ -134,7 +134,7 @@
                                                 #<?php echo $allTasksCount++ ." created in ".$tasks['dateTask']; ?></div>
                                             <div class="text-truncate fw-light" id="taskDescription<?= $tasks['idTask'] ?>"><?php echo $tasks['descriptionTask']; ?></div>
                                         </div>
-                                        <span class="btn btn-primary px-1 py-0" id="taskPriority<?= $tasks['idTask'] ?>" value="<?php echo $tasks['priorityTask']; ?>"><?php echo $tasks['namePriority']; ?></span>
+                                        <span class="btn btn-primary px-1 py-0" id="taskPriority<?= $tasks['idTask'] ?>"><?php echo $tasks['namePriority']; ?></span>
                                         <span class="btn btn-gray-300 text-black px-1 py-0" id="taskType<?= $tasks['idTask'] ?>"><?php echo $tasks['nameType']; ?></span>
                                         <span style="display:none;" id="taskStatus<?php echo $tasks['idTask']; ?>" ><?php echo $tasks['statusTask']; ?></span>
                                     </div>
@@ -166,22 +166,22 @@
                         <form id="form" method="post">
                             <div class="mb-0">
                                 <label for="taskTitle" class="col-form-label">Title</label>
-                                <input type="text" class="form-control" id="TitleInput" name="taskTitle" required />
+                                <input type="text" class="form-control" id="TitleInput" name="titleInput" required />
                             </div>
                             <div class="mb-0">
                                 <label for="taskType" class="col-form-label">Type</label>
                                 <div class="form-check py-2 mx-3">
-                                    <input class="form-check-input" type="radio" id="feature" name="TypeInput" value="2" />
+                                    <input class="form-check-input" type="radio" id="feature" name="typeInput" value="2" />
                                     <label for="Feature" class="form-check-label">Feature</label>
                                 </div>
                                 <div class="form-check py-2 mx-3">
-                                    <input class="form-check-input" type="radio" id="bug" name="TypeInput" value="1" />
+                                    <input class="form-check-input" type="radio" id="bug" name="typeInput" value="1" />
                                     <label for="Bug" class="form-check-label">Bug</label>
                                 </div>
                             </div>
                             <div class="mb-0">
                                 <label for="taskPriority" class="col-form-label">Priority</label>
-                                <select class="form-select" id="PriorityInput" name="Priority" required>
+                                <select class="form-select" id="PriorityInput" name="priorityInput" required>
                                     <option value selected disabled>Please select</option>
                                     <option value="4">Critical</option>
                                     <option value="3">High</option>
@@ -191,7 +191,7 @@
                             </div>
                             <div class="mb-0">
                                 <label for="taskStatus" class="col-form-label">Status</label>
-                                <select class="form-select" id="StatusInput" name="taskStatus" required>
+                                <select class="form-select" id="StatusInput" name="statusInput" required>
                                     <option selected disabled>Please select</option>
                                     <option value="1">To Do</option>
                                     <option value="2">In Progress</option>
@@ -201,11 +201,11 @@
                             <input type="hidden" id="id" value />
                             <div class="mb-0">
                                 <label for="taskDate" class="col-form-label">Date</label>
-                                <input class="form-control" type="datetime-local" required id="DateInput" name="taskDate" />
+                                <input class="form-control" type="date" required id="DateInputt" name="dateInput" />
                             </div>
                             <div class="mb-0">
                                 <label for="taskDate" class="col-form-label">Description</label>
-                                <textarea class="form-control" id="DescriptionInput" required rows="8" name="taskDescription"></textarea>
+                                <textarea class="form-control" id="DescriptionInput" required rows="8" name="descriptionInput"></textarea>
                             </div>
                             <div class="modal-footer">
                                 <button type="reset" class="btn btn-outline-dark text-black" data-bs-dismiss="modal">Cancel</button>

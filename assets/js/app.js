@@ -6,7 +6,7 @@
 
 function createTask() {
     // initialiser task form
-    /* document.getElementById("form").reset(); */
+    document.getElementById("form").reset();
     
     // Afficher le boutton save
     document.getElementById("save").style.display = "block";
@@ -47,7 +47,7 @@ function saveTask() {
 
 }
 
-function getTask(id) {
+function getTask(id,date) {
 
     // Save Button show 
     document.getElementById("save").style.display = "none";
@@ -55,7 +55,7 @@ function getTask(id) {
 
     // Initialisez task form
     $("#taskModal").modal("show");
-    console.log(document.querySelector(`#taskTitle${id}`));
+    /* console.log(document.querySelector(`#taskTitle${id}`)); */
 
     document.getElementById("TitleInput").value = document.querySelector(`#taskTitle${id}`).innerText;
     if ( document.querySelector(`#taskType${id}`).innerText == "Bug") {
@@ -64,9 +64,19 @@ function getTask(id) {
         document.getElementById("feature").checked = true
     }
     document.getElementById("StatusInput").value = document.querySelector(`#taskStatus${id}`).innerText;
-    document.getElementById("PriorityInput").value = document.querySelector(`#taskPriority${id}`).innerHtml;
+
+    if(document.querySelector(`#taskPriority${id}`).innerText== "Low"){
+        document.getElementById("PriorityInput").value = 1;
+    }else if(document.querySelector(`#taskPriority${id}`).innerText== "Medium"){
+        document.getElementById("PriorityInput").value = 2;
+    }else if(document.querySelector(`#taskPriority${id}`).innerText== "High"){
+        document.getElementById("PriorityInput").value = 3;
+    }else{
+        document.getElementById("PriorityInput").value = 4;
+    }
+   /*  document.getElementById("PriorityInput").value = document.querySelector(`#taskPriority${id}`).innerText; */
     
-    document.getElementById("DateInput").value = document.querySelector(`#taskDate${id}`).innerText;
+    document.getElementById("DateInputt").value = date;
     document.getElementById("DescriptionInput").value = document.querySelector(`#taskDescription${id}`).innerText;
 
 
