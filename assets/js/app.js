@@ -57,7 +57,9 @@ function getTask(id,date) {
     $("#taskModal").modal("show");
     /* console.log(document.querySelector(`#taskTitle${id}`)); */
 
+    //Getting info already printed by PHP thats clicked on and printing it to the same modal used by addTask 
     document.getElementById("TitleInput").value = document.querySelector(`#taskTitle${id}`).innerText;
+
     if ( document.querySelector(`#taskType${id}`).innerText == "Bug") {
         document.getElementById("bug").checked = true
     } else {
@@ -74,11 +76,11 @@ function getTask(id,date) {
     }else{
         document.getElementById("PriorityInput").value = 4;
     }
-   /*  document.getElementById("PriorityInput").value = document.querySelector(`#taskPriority${id}`).innerText; */
     
     document.getElementById("DateInput").value = date;
     document.getElementById("DescriptionInput").value = document.querySelector(`#taskDescription${id}`).innerText;
     document.getElementById("IdInput").value = id;
+    
     // Affichez updates
    /*  document.getElementById("taskTitle").value = tasks[index].title;
     if (tasks[index].type == "Bug") {

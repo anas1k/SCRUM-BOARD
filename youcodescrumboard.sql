@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 26, 2022 at 12:43 AM
+-- Generation Time: Oct 29, 2022 at 10:34 PM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -74,7 +74,7 @@ CREATE TABLE `tasks` (
   `type_id` int(11) NOT NULL,
   `priority_id` int(11) NOT NULL,
   `status_id` int(11) NOT NULL,
-  `task_datetime` datetime NOT NULL,
+  `task_datetime` date NOT NULL,
   `description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -83,9 +83,14 @@ CREATE TABLE `tasks` (
 --
 
 INSERT INTO `tasks` (`id`, `title`, `type_id`, `priority_id`, `status_id`, `task_datetime`, `description`) VALUES
-(1, 'just for test', 1, 2, 2, '2022-10-25 21:43:45', 'lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that '),
-(2, 'test 2', 1, 4, 1, '2022-10-27 01:34:38', 'hs dfghsdfg\r\nsdfgsafdg\r\nasfg\r\ns\r\nfg\r\nsf\r\ngs'),
-(3, 'test 3', 2, 2, 3, '2022-10-28 01:35:12', ' adfasdfga\r\ndsfg\r\nad\r\nsf\r\nad\r\nsf\r\nASDG');
+(1, 'just for te', 1, 2, 2, '2022-10-25', 'lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that lorem ipsu that'),
+(2, 'test ', 1, 4, 1, '2022-10-27', 'hs dfghsdfg sdfgsafdg asfg s fg sf gs'),
+(3, 'tesfd', 2, 2, 3, '2022-10-28', 'adfasdfga dsfg ad sf ad sf ASDG'),
+(4, 'gdf', 2, 4, 1, '2022-10-29', 'hsdfghsdfg'),
+(5, 'shgfc', 1, 2, 3, '2022-10-29', 'sdrfgbn'),
+(6, 'sh gddssss', 2, 2, 2, '2022-09-09', 'ghsfgnj'),
+(7, 'hs dfgh', 1, 3, 1, '2022-10-14', 'ghs fghs'),
+(8, 'gha tfd', 2, 4, 2, '2022-09-26', ' hdftgh');
 
 -- --------------------------------------------------------
 
@@ -157,7 +162,7 @@ ALTER TABLE `statuses`
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `types`
