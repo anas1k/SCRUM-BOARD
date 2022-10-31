@@ -62,14 +62,14 @@
                                 <?php foreach ($allTasks as $tasks) { 
                                         if($tasks['nameStatus'] === "To Do"){
                                 ?>
-                                <button class="d-flex list-group-item w-100 pb-2 py-2 px-1" onclick="getTask('<?php echo $tasks['idTask']; ?>','<?php echo $tasks['dateTask']; ?>')" >
+                                <button class="d-flex list-group-item w-100 pb-2 py-2 px-1" onclick="getTask('<?php echo $tasks['idTask']; ?>')" >
                                     <div class="m-3">
                                         <i class="fa-lg fa-regular fa-circle-question green green"></i>
                                     </div>
                                     <div class="text-start">
                                         <div class="fw-bolder" id="taskTitle<?= $tasks['idTask'] ?>" ><?php echo $tasks['titleTask']; ?></div>
                                         <div class="description-max-width">
-                                            <div class="fw-light text-secondary" >#<?php echo $allTasksCount++ ." created in ".$tasks['dateTask']; ?></div>
+                                            <div class="fw-light text-secondary" >#<?php echo $allTasksCount++ ." created in "?><span id="DateTaskForm<?= $tasks['idTask']; ?>"><?=$tasks['dateTask']; ?></span></div>
                                             <div class="text-truncate fw-light" id="taskDescription<?= $tasks['idTask'] ?>" ><?php echo $tasks['descriptionTask']; ?></div>
                                         </div>
                                         <div class="button">
@@ -93,14 +93,14 @@
                                 <!-- IN PROGRESS TASKS HERE -->
                                 <?php foreach ($allTasks as $tasks) { 
                                     if($tasks['nameStatus'] === "In Progress"){?>
-                                <button id="inProgress-box" class="d-flex list-group-item w-100 pb-2 py-2 px-1" onclick="getTask('<?php echo $tasks['idTask']; ?>','<?php echo $tasks['dateTask']; ?>')">
+                                <button id="inProgress-box" class="d-flex list-group-item w-100 pb-2 py-2 px-1" onclick="getTask('<?php echo $tasks['idTask']; ?>')">
                                     <div class="m-3 rotate">
                                         <i class="fa-lg fa-solid fa-circle-notch green"></i>
                                     </div>
                                     <div class="text-start">
                                         <div class="fw-bolder" id="taskTitle<?= $tasks['idTask'] ?>" ><?php echo $tasks['titleTask']; ?></div>
                                         <div class="description-max-width">
-                                            <div class="fw-light text-secondary" >#<?php echo $allTasksCount++ ." created in ".$tasks['dateTask']; ?></div>
+                                            <div class="fw-light text-secondary" >#<?php echo $allTasksCount++ ." created in "?><span id="DateTaskForm<?= $tasks['idTask']; ?>"><?=$tasks['dateTask']; ?></span></div>
                                             <div class="text-truncate fw-light" id="taskDescription<?= $tasks['idTask'] ?>"><?php echo $tasks['descriptionTask']; ?></div>
                                         </div>
                                         <span class="btn btn-primary px-1 py-0" id="taskPriority<?= $tasks['idTask'] ?>"><?php echo $tasks['namePriority']; ?></span>
@@ -123,7 +123,7 @@
                                 <?php foreach ($allTasks as $tasks) { 
                                         if($tasks['nameStatus'] === "Done"){
                                 ?>
-                                <button class="d-flex list-group-item w-100 pb-2 py-2 px-1" onclick="getTask('<?php echo $tasks['idTask']; ?>','<?php echo $tasks['dateTask']; ?>')">
+                                <button class="d-flex list-group-item w-100 pb-2 py-2 px-1" onclick="getTask('<?php echo $tasks['idTask']; ?>')">
                                     <div class="m-3">
                                         <i class="fa-lg fa-regular fa-circle-check green"></i>
                                     </div>
@@ -131,7 +131,7 @@
                                         <div class="fw-bolder" id="taskTitle<?= $tasks['idTask'] ?>" ><?php echo $tasks['titleTask']; ?></div>
                                         <div class="description-max-width">
                                             <div class="fw-light text-secondary" >
-                                                #<?php echo $allTasksCount++ ." created in ".$tasks['dateTask']; ?></div>
+                                                #<?php echo $allTasksCount++ ." created in "?><span id="DateTaskForm<?= $tasks['idTask']; ?>"><?=$tasks['dateTask']; ?></span></div>
                                             <div class="text-truncate fw-light" id="taskDescription<?= $tasks['idTask'] ?>"><?php echo $tasks['descriptionTask']; ?></div>
                                         </div>
                                         <span class="btn btn-primary px-1 py-0" id="taskPriority<?= $tasks['idTask'] ?>"><?php echo $tasks['namePriority']; ?></span>
@@ -171,7 +171,7 @@
                             <div class="mb-0">
                                 <label for="taskType" class="col-form-label">Type</label>
                                 <div class="form-check py-2 mx-3">
-                                    <input class="form-check-input" type="radio" id="feature" name="typeInput" value="2" />
+                                    <input class="form-check-input" type="radio" id="feature" name="typeInput" value="2" checked/>
                                     <label for="Feature" class="form-check-label">Feature</label>
                                 </div>
                                 <div class="form-check py-2 mx-3">
@@ -233,7 +233,7 @@
         <!-- JavaScript Code Start -->
 
         <script>
-            // to reload tasks everytime the page reloads
+            // to reload tasks everytime the page reloads with JavaScript
            /*  reloadTasks(); */
         </script>
 

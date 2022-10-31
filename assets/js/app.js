@@ -47,7 +47,7 @@ function saveTask() {
 
 }
 
-function getTask(id,date) {
+function getTask(id) {
 
     // Save Button show 
     document.getElementById("save").style.display = "none";
@@ -77,7 +77,7 @@ function getTask(id,date) {
         document.getElementById("PriorityInput").value = 4;
     }
     
-    document.getElementById("DateInput").value = date;
+    document.getElementById("DateInput").value = document.querySelector(`#DateTaskForm${id}`).innerText;
     document.getElementById("DescriptionInput").value = document.querySelector(`#taskDescription${id}`).innerText;
     document.getElementById("IdInput").value = id;
     
