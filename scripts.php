@@ -42,6 +42,7 @@
         // Getting id of task for deletion
         $id = $_POST['idInput'];
 
+        
         // redirecting back to Home page
         deleteTask($id);
     }
@@ -77,7 +78,7 @@
         return $result;
 
     }
-    
+
     function saveTask($title, $type, $priority, $status, $date, $description)
     {
         //CODE HERE
