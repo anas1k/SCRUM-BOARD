@@ -2,7 +2,8 @@
     //include file where functions are defined
     include ('scripts.php');
     include('controller.php');
-
+    /* require 'vendor/autoload.php'; */
+    /* require('.env').config(); */
 
 ?>
 
