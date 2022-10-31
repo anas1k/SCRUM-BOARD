@@ -9,6 +9,7 @@
     //ROUTING
     if(isset($_POST['addTaskForm'])){    
 
+        // Getting new data from inputs of form 
         $title = $_POST['titleInput'];
         $type = $_POST['typeInput'];
         $priority = $_POST['priorityInput'];
@@ -16,14 +17,14 @@
         $date = $_POST['dateInput'];
         $description = $_POST['descriptionInput'];
 
-        /* $result =  */saveTask($title, $type, $priority, $status, $date, $description);
-        /* if($result === '1'){
-            header('Location: index.php');
-        } */    
+        // Passing parameters to function
+        saveTask($title, $type, $priority, $status, $date, $description);
+
     }
 
     if(isset($_POST['updateTaskForm'])){
 
+        // Getting new data from inputs of form 
         $id = $_POST['idInput'];
         $title = $_POST['titleInput'];
         $type = $_POST['typeInput'];
@@ -32,16 +33,21 @@
         $date = $_POST['dateInput'];
         $description = $_POST['descriptionInput'];
         
+        // Passing parameters to function
         updateTask($id, $title, $type, $priority, $status, $date, $description);
     }
     
     if(isset($_POST['deleteTaskFrom'])){
 
+        // Getting id of task for deletion
         $id = $_POST['idInput'];
 
+        // redirecting back to Home page
         deleteTask($id);
     }
     
+
+    // CRUD Functions
     function getTasks()
     {
         //CODE HERE
@@ -60,13 +66,18 @@
             WHERE ty.id = ts.type_id
             AND pr.id = ts.priority_id
             AND st.id = ts.status_id;";
+
+        // passing SQL with Connection function to DataBase
         $result = connect() -> query($sql);
 
+        // SESSION message of conformation 
         $_SESSION['message'] = "Fetch all tasks";
+
+        // returning results of Query to display in Home page
         return $result;
+
     }
-
-
+    
     function saveTask($title, $type, $priority, $status, $date, $description)
     {
         //CODE HERE
@@ -74,11 +85,15 @@
         $sql = "INSERT INTO tasks(title, type_id, priority_id, status_id, task_datetime, description) 
             VALUES('$title','$type','$priority','$status','$date', '$description');";
         
+        // passing SQL with Connection function to DataBase
         connect() -> query($sql);
 
+        // SESSION message of conformation 
         $_SESSION['message'] = "Task has been added successfully !";
+
+        // redirecting back to Home page
 		header('location: index.php');
-        /* return '1'; */
+
     }
 
     function updateTask($id, $title, $type, $priority, $status, $date, $description)
@@ -87,11 +102,16 @@
         //SQL UPDATE
         $sql= "UPDATE tasks SET title = '$title', type_id = '$type', priority_id = '$priority', 
             status_id = '$status', task_datetime = '$date', description = '$description' WHERE id = '$id';";
+
+        // passing SQL with Connection function to DataBase
         connect() -> query($sql);
 
+        // SESSION message of conformation 
         $_SESSION['message'] = "Task has been updated successfully !";
+
+        // redirecting back to Home page
 		header('location: index.php');
-        /* return '1'; */
+        
     }
 
     function deleteTask($id)
@@ -99,10 +119,16 @@
         //CODE HERE
         //SQL DELETE
         $sql="DELETE FROM tasks WHERE id='$id'";
+
+        // passing SQL with Connection function to DataBase
         connect() -> query($sql);
 
+        // SESSION message of conformation 
         $_SESSION['message'] = "Task has been deleted successfully !";
+
+        // redirecting back to Home page
 		header('location: index.php');
+
     }
 
 ?>
