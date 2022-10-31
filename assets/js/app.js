@@ -99,7 +99,7 @@ function getTask(id) {
             'Your task has been deleted.',
             'success'
              )
-        $("#deleteValidation").unbind("click");
+        $("#form").submit();
         
         }
         })
