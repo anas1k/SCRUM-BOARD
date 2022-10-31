@@ -212,7 +212,7 @@
                                 <button type="reset" class="btn btn-outline-dark text-black" data-bs-dismiss="modal">Cancel</button>
                                 <button id="save" type="submit" name="addTaskForm"  class="btn btn-primary">Save</button>
                                 <div id="editTask" style="display: none">
-                                    <button type="submit" name="deleteTaskFrom" class="btn btn-danger text-black">Delete</button>
+                                    <button type="submit" id="deleteValidation" name="deleteTaskFrom" class="btn btn-danger text-black">Delete</button>
                                     <button type="submit" name="updateTaskForm" class="btn btn-warning text-black">Update</button>
                                 </div>
                             </div>
@@ -225,6 +225,7 @@
         <!-- Modal content goes here -->
 
         <!-- ================== BEGIN core-js ================== -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="assets/js/vendor.min.js"></script>
         <script src="assets/js/app.min.js"></script>
         <script src="assets/js/data.js"></script>

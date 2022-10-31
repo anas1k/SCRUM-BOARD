@@ -80,7 +80,30 @@ function getTask(id) {
     document.getElementById("DateInput").value = document.querySelector(`#DateTaskForm${id}`).innerText;
     document.getElementById("DescriptionInput").value = document.querySelector(`#taskDescription${id}`).innerText;
     document.getElementById("IdInput").value = id;
-    
+    /* document.getElementById("deleteValidation").addEventListener( */
+    $("#deleteValidation").on('click', function (e) { 
+        e.preventDefault();
+        Swal.fire({
+            
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+            'Deleted!',
+            'Your task has been deleted.',
+            'success'
+             )
+        $("#deleteValidation").unbind("click");
+        
+        }
+        })
+      })
     // Affichez updates
    /*  document.getElementById("taskTitle").value = tasks[index].title;
     if (tasks[index].type == "Bug") {

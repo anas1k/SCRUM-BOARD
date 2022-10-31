@@ -3,8 +3,6 @@
     require 'vendor/autoload.php';
     $dotenv = Dotenv\Dotenv::createUnsafeImmutable(__DIR__);
     $dotenv -> load();
-/*     $dotenv -> required([DB_SERVERNAME, DB_USERNAME, DB_USERPASSWORD, DB_DATABASE]);
- */ 
     
     function connect(){
 
