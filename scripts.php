@@ -6,9 +6,6 @@
     //SESSSION IS A WAY TO STORE DATA TO BE USED ACROSS MULTIPLE PAGES
     session_start();
 
-    /* var_dump($_POST);
-    die; */
-
     //ROUTING
     if(isset($_POST['addTaskForm'])){    
 

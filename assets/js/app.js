@@ -100,30 +100,32 @@ function getTask(element , id) {
             $("#deleteValidation").submit();
         }  */
         }).then((result) => {
-            
         if (result.isConfirmed) {
              Swal.fire(
             'Deleted!',
             'Your task has been deleted.',
             'success'
             );
+            // using ajax to send data withut refresh 
             $.ajax({
                 url: "scripts.php",
                 type: "POST",
                 data: {deleteTaskFrom: id},
                 // dataType: "html",
                 success: function () {
-                if(element.querySelector(`#taskStatus${id}`).innerText === 1){
-                    document.getElementById("to-do-tasks-count").innerText = parseInt(document.getElementById("to-do-tasks-count").innerText) -1;
-                }else if(element.querySelector(`#taskStatus${id}`).innerText === 2){
-                    document.getElementById("in-progress-tasks-count").innerText = parseInt(document.getElementById("in-progress-tasks-count").innerText) -1;
-                }else {
-                    document.getElementById("done-tasks-count").innerText = parseInt(document.getElementById("done-tasks-count").innerText) -1;
-                }
-                
-                element.remove();
-                $("#taskModal").modal("hide");
-                // location.reload(true);
+                    // modifiers for task counters to subtract without refresh 
+                    if(element.querySelector(`#taskStatus${id}`).innerText === 1){
+                        document.getElementById("to-do-tasks-count").innerText = parseInt(document.getElementById("to-do-tasks-count").innerText) -1;
+                    }else if(element.querySelector(`#taskStatus${id}`).innerText === 2){
+                        document.getElementById("in-progress-tasks-count").innerText = parseInt(document.getElementById("in-progress-tasks-count").innerText) -1;
+                    }else {
+                        document.getElementById("done-tasks-count").innerText = parseInt(document.getElementById("done-tasks-count").innerText) -1;
+                    }
+                    // removing the deleted element from DOM 
+                    element.remove();
+                    // hiding the modal after the confirmation 
+                    $("#taskModal").modal("hide");
+                    // location.reload(true);
                 }
             })
         }
