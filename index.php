@@ -72,7 +72,7 @@
                                         </div>
                                         
                                             <span class="badge text-bg-primary even-larger-badge" id="taskPriority<?= $tasks['idTask'] ?>" ><?php echo $tasks['namePriority']; ?></span>
-                                            <span class="badge bg-secondary even-larger-badge " id="taskType<?= $tasks['idTask'] ?>"> <?php echo $tasks['nameType']; ?></span>
+                                            <span class="badge bg-secondary even-larger-badge text-black" id="taskType<?= $tasks['idTask'] ?>"> <?php echo $tasks['nameType']; ?></span>
                                             <span style="display:none" id="taskStatus<?php echo $tasks['idTask']; ?>" ><?php echo $tasks['statusTask']; ?></span>
                                         
                                     </div>
@@ -102,7 +102,7 @@
                                             <div class="text-truncate mb-1" id="taskDescription<?= $tasks['idTask'] ?>"><?php echo $tasks['descriptionTask']; ?></div>
                                         </div>
                                         <span class="badge text-bg-primary even-larger-badge" id="taskPriority<?= $tasks['idTask'] ?>"><?php echo $tasks['namePriority']; ?></span>
-                                        <span class="badge bg-secondary even-larger-badge" id="taskType<?= $tasks['idTask'] ?>"><?php echo $tasks['nameType']; ?></span>
+                                        <span class="badge bg-secondary even-larger-badge text-black" id="taskType<?= $tasks['idTask'] ?>"><?php echo $tasks['nameType']; ?></span>
                                         <span style="display:none" id="taskStatus<?php echo $tasks['idTask']; ?>" ><?php echo $tasks['statusTask']; ?></span>
                                     </div>
                                 </button>
@@ -133,7 +133,7 @@
                                             <div class="text-truncate mb-1" id="taskDescription<?= $tasks['idTask'] ?>"><?php echo $tasks['descriptionTask']; ?></div>
                                         </div>
                                         <span class="badge text-bg-primary even-larger-badge" id="taskPriority<?= $tasks['idTask'] ?>"><?php echo $tasks['namePriority']; ?></span>
-                                        <span class="badge bg-secondary even-larger-badge" id="taskType<?= $tasks['idTask'] ?>"><?php echo $tasks['nameType']; ?></span>
+                                        <span class="badge bg-secondary even-larger-badge text-black" id="taskType<?= $tasks['idTask'] ?>"><?php echo $tasks['nameType']; ?></span>
                                         <span style="display:none;" id="taskStatus<?php echo $tasks['idTask']; ?>" ><?php echo $tasks['statusTask']; ?></span>
                                     </div>
                                 </button>
