@@ -2,8 +2,6 @@
     //include file where functions are defined
     include ('scripts.php');
     include('controller.php');
-    /* require 'vendor/autoload.php'; */
-    /* require('.env').config(); */
 
 ?>
 
@@ -63,7 +61,7 @@
                                 <?php foreach ($allTasks as $tasks) { 
                                         if($tasks['nameStatus'] === "To Do"){
                                 ?>
-                                <button class="d-flex list-group-item w-100 pb-2 py-2 px-1" onclick="getTask('<?php echo $tasks['idTask']; ?>')" >
+                                <button class="d-flex list-group-item w-100 pb-2 py-2 px-1" onclick="getTask(this , '<?php echo $tasks['idTask']; ?>')" >
                                     <div class="m-3">
                                         <i class="fa-lg fa-regular fa-circle-question green green"></i>
                                     </div>
@@ -94,7 +92,7 @@
                                 <!-- IN PROGRESS TASKS HERE -->
                                 <?php foreach ($allTasks as $tasks) { 
                                     if($tasks['nameStatus'] === "In Progress"){?>
-                                <button id="inProgress-box" class="d-flex list-group-item w-100 pb-2 py-2 px-1" onclick="getTask('<?php echo $tasks['idTask']; ?>')">
+                                <button id="inProgress-box" class="d-flex list-group-item w-100 pb-2 py-2 px-1" onclick="getTask(this , '<?php echo $tasks['idTask']; ?>')">
                                     <div class="m-3 rotate">
                                         <i class="fa-lg fa-solid fa-circle-notch green"></i>
                                     </div>
@@ -124,7 +122,7 @@
                                 <?php foreach ($allTasks as $tasks) { 
                                         if($tasks['nameStatus'] === "Done"){
                                 ?>
-                                <button class="d-flex list-group-item w-100 pb-2 py-2 px-1" onclick="getTask('<?php echo $tasks['idTask']; ?>')">
+                                <button class="d-flex list-group-item w-100 pb-2 py-2 px-1" onclick="getTask(this , '<?php echo $tasks['idTask']; ?>')">
                                     <div class="m-3">
                                         <i class="fa-lg fa-regular fa-circle-check green"></i>
                                     </div>
@@ -193,7 +191,7 @@
                             <div class="mb-0">
                                 <label for="taskStatus" class="col-form-label">Status</label>
                                 <select class="form-select" id="StatusInput" name="statusInput" required>
-                                    <option selected disabled>Please select</option>
+                                    <option value selected disabled>Please select</option>
                                     <option value="1">To Do</option>
                                     <option value="2">In Progress</option>
                                     <option value="3">Done</option>

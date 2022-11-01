@@ -8,6 +8,7 @@
 
     /* var_dump($_POST);
     die; */
+
     //ROUTING
     if(isset($_POST['addTaskForm'])){    
 
@@ -42,8 +43,9 @@
     if(isset($_POST['deleteTaskFrom'])){
 
         // Getting id of task for deletion
-        $id = $_POST['idInput'];
-
+        $id = $_POST['deleteTaskFrom'];
+        echo "Deleting task";
+        echo $id;
         
         // redirecting back to Home page
         deleteTask($id);
@@ -120,7 +122,9 @@
     function deleteTask($id)
     {
         //CODE HERE
-        //SQL DELETE
+        //SQL "DELETE"
+        // $arr = ["test" => "tesst" , "no test" => "no test"];
+        // return $arr;
         $sql="DELETE FROM tasks WHERE id='$id'";
 
         // passing SQL with Connection function to DataBase

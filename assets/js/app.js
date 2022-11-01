@@ -47,7 +47,7 @@ function saveTask() {
 
 }
 
-function getTask(id) {
+function getTask(element , id) {
 
     // Save Button show 
     document.getElementById("save").style.display = "none";
@@ -84,23 +84,49 @@ function getTask(id) {
     $("#deleteValidation").on('click', function (e) { 
         e.preventDefault();
         Swal.fire({
-            
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Yes, delete it!', 
+         /* preConfirm: function() {
+            $("#deleteValidation").submit();
+
+        }  */
         }).then((result) => {
+            
         if (result.isConfirmed) {
-            Swal.fire(
+             Swal.fire(
             'Deleted!',
             'Your task has been deleted.',
             'success'
-             )
-        $("#form").submit();
-        
+            );
+            $.ajax({
+                url: "scripts.php",
+                type: "POST",
+                data: {deleteTaskFrom: id},
+                // dataType: "html",
+                success: function () {
+                if(element.querySelector(`#taskStatus${id}`).innerText === 1){
+                    document.getElementById("to-do-tasks-count").innerText = parseInt(document.getElementById("to-do-tasks-count").innerText) -1;
+                }else if(element.querySelector(`#taskStatus${id}`).innerText === 2){
+                    document.getElementById("in-progress-tasks-count").innerText = parseInt(document.getElementById("in-progress-tasks-count").innerText) -1;
+                }else {
+                    document.getElementById("done-tasks-count").innerText = parseInt(document.getElementById("done-tasks-count").innerText) -1;
+                }
+                // let toDoCount = 0,
+                //     inProgressCount = 0,
+                //     doneCount = 0;
+                // console.log(element.querySelector(`#taskStatus${id}`).innerText);
+                // if(element.status ==)
+                
+                element.remove();
+                $("#taskModal").modal("hide");
+                // location.reload(true);
+                }
+            })
         }
         })
       })
