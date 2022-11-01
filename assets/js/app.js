@@ -112,9 +112,9 @@ function getTask(element , id) {
                 // dataType: "html",
                 success: function () {
                     // modifiers for task counters to subtract without refresh 
-                    if(element.querySelector(`#taskStatus${id}`).innerText === 1){
+                    if(element.querySelector(`#taskStatus${id}`).innerText == 1){
                         document.getElementById("to-do-tasks-count").innerText = parseInt(document.getElementById("to-do-tasks-count").innerText) -1;
-                    }else if(element.querySelector(`#taskStatus${id}`).innerText === 2){
+                    }else if(element.querySelector(`#taskStatus${id}`).innerText == 2){
                         document.getElementById("in-progress-tasks-count").innerText = parseInt(document.getElementById("in-progress-tasks-count").innerText) -1;
                     }else {
                         document.getElementById("done-tasks-count").innerText = parseInt(document.getElementById("done-tasks-count").innerText) -1;
@@ -129,7 +129,7 @@ function getTask(element , id) {
         }
         })
       })
-      
+
     // Affichez updates
    /*  document.getElementById("taskTitle").value = tasks[index].title;
     if (tasks[index].type == "Bug") {

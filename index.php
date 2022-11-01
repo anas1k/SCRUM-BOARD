@@ -16,8 +16,7 @@
 
         <!-- ================== BEGIN core-css ================== -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.Z/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <link href="assets/css/vendor.min.css" rel="stylesheet" />
         <link href="assets/css/default/app.min.css" rel="stylesheet" />
         <link href="assets/css/style.css" rel="stylesheet" />
@@ -61,21 +60,21 @@
                                 <?php foreach ($allTasks as $tasks) { 
                                         if($tasks['nameStatus'] === "To Do"){
                                 ?>
-                                <button class="d-flex list-group-item w-100 pb-2 py-2 px-1" onclick="getTask(this , '<?php echo $tasks['idTask']; ?>')" >
-                                    <div class="m-3">
-                                        <i class="fa-lg fa-regular fa-circle-question green green"></i>
+                                <button class="d-flex list-group-item w-100 py-2 px-1" onclick="getTask(this , '<?php echo $tasks['idTask']; ?>')" >
+                                    <div class="mt-2 m-3">
+                                        <i class="fa-lg fa-regular fa-circle-question green"></i>
                                     </div>
-                                    <div class="text-start">
-                                        <div class="fw-bolder" id="taskTitle<?= $tasks['idTask'] ?>" ><?php echo $tasks['titleTask']; ?></div>
+                                    <div class="text-start mb-1">
+                                        <div class="fw-bold fs-5" id="taskTitle<?= $tasks['idTask'] ?>" ><?php echo $tasks['titleTask']; ?></div>
                                         <div class="description-max-width">
                                             <div class="fw-light text-secondary" >#<?php echo $allTasksCount++ ." created in "?><span id="DateTaskForm<?= $tasks['idTask']; ?>"><?=$tasks['dateTask']; ?></span></div>
-                                            <div class="text-truncate fw-light" id="taskDescription<?= $tasks['idTask'] ?>" ><?php echo $tasks['descriptionTask']; ?></div>
+                                            <div class="text-truncate mb-1" id="taskDescription<?= $tasks['idTask'] ?>" ><?php echo $tasks['descriptionTask']; ?></div>
                                         </div>
-                                        <div class="button">
-                                            <span class="badge badge-primary px-1 py-0" id="taskPriority<?= $tasks['idTask'] ?>" ><?php echo $tasks['namePriority']; ?></span>
-                                            <span class="btn btn-gray-300 text-black px-1 py-0" id="taskType<?= $tasks['idTask'] ?>"> <?php echo $tasks['nameType']; ?></span>
+                                        
+                                            <span class="badge text-bg-primary even-larger-badge" id="taskPriority<?= $tasks['idTask'] ?>" ><?php echo $tasks['namePriority']; ?></span>
+                                            <span class="badge bg-secondary even-larger-badge " id="taskType<?= $tasks['idTask'] ?>"> <?php echo $tasks['nameType']; ?></span>
                                             <span style="display:none" id="taskStatus<?php echo $tasks['idTask']; ?>" ><?php echo $tasks['statusTask']; ?></span>
-                                        </div>
+                                        
                                     </div>
                                 </button>
                                 <?php   } 
@@ -92,18 +91,18 @@
                                 <!-- IN PROGRESS TASKS HERE -->
                                 <?php foreach ($allTasks as $tasks) { 
                                     if($tasks['nameStatus'] === "In Progress"){?>
-                                <button id="inProgress-box" class="d-flex list-group-item w-100 pb-2 py-2 px-1" onclick="getTask(this , '<?php echo $tasks['idTask']; ?>')">
-                                    <div class="m-3 rotate">
+                                <button id="inProgress-box" class="d-flex list-group-item w-100 py-2 px-1" onclick="getTask(this , '<?php echo $tasks['idTask']; ?>')">
+                                    <div class="mt-2 m-3 rotate">
                                         <i class="fa-lg fa-solid fa-circle-notch green"></i>
                                     </div>
-                                    <div class="text-start">
-                                        <div class="fw-bolder" id="taskTitle<?= $tasks['idTask'] ?>" ><?php echo $tasks['titleTask']; ?></div>
+                                    <div class="text-start mb-1">
+                                        <div class="fw-bold fs-5" id="taskTitle<?= $tasks['idTask'] ?>" ><?php echo $tasks['titleTask']; ?></div>
                                         <div class="description-max-width">
                                             <div class="fw-light text-secondary" >#<?php echo $allTasksCount++ ." created in "?><span id="DateTaskForm<?= $tasks['idTask']; ?>"><?=$tasks['dateTask']; ?></span></div>
-                                            <div class="text-truncate fw-light" id="taskDescription<?= $tasks['idTask'] ?>"><?php echo $tasks['descriptionTask']; ?></div>
+                                            <div class="text-truncate mb-1" id="taskDescription<?= $tasks['idTask'] ?>"><?php echo $tasks['descriptionTask']; ?></div>
                                         </div>
-                                        <span class="btn btn-primary px-1 py-0" id="taskPriority<?= $tasks['idTask'] ?>"><?php echo $tasks['namePriority']; ?></span>
-                                        <span class="btn btn-gray-300 text-black px-1 py-0" id="taskType<?= $tasks['idTask'] ?>"><?php echo $tasks['nameType']; ?></span>
+                                        <span class="badge text-bg-primary even-larger-badge" id="taskPriority<?= $tasks['idTask'] ?>"><?php echo $tasks['namePriority']; ?></span>
+                                        <span class="badge bg-secondary even-larger-badge" id="taskType<?= $tasks['idTask'] ?>"><?php echo $tasks['nameType']; ?></span>
                                         <span style="display:none" id="taskStatus<?php echo $tasks['idTask']; ?>" ><?php echo $tasks['statusTask']; ?></span>
                                     </div>
                                 </button>
@@ -122,19 +121,19 @@
                                 <?php foreach ($allTasks as $tasks) { 
                                         if($tasks['nameStatus'] === "Done"){
                                 ?>
-                                <button class="d-flex list-group-item w-100 pb-2 py-2 px-1" onclick="getTask(this , '<?php echo $tasks['idTask']; ?>')">
-                                    <div class="m-3">
+                                <button class="d-flex list-group-item w-100 py-2 px-1" onclick="getTask(this , '<?php echo $tasks['idTask']; ?>')">
+                                    <div class="mt-2 m-3">
                                         <i class="fa-lg fa-regular fa-circle-check green"></i>
                                     </div>
-                                    <div class="text-start">
-                                        <div class="fw-bolder" id="taskTitle<?= $tasks['idTask'] ?>" ><?php echo $tasks['titleTask']; ?></div>
+                                    <div class="text-start mb-1">
+                                        <div class="fw-bold fs-5" id="taskTitle<?= $tasks['idTask'] ?>" ><?php echo $tasks['titleTask']; ?></div>
                                         <div class="description-max-width">
                                             <div class="fw-light text-secondary" >
                                                 #<?php echo $allTasksCount++ ." created in "?><span id="DateTaskForm<?= $tasks['idTask']; ?>"><?=$tasks['dateTask']; ?></span></div>
-                                            <div class="text-truncate fw-light" id="taskDescription<?= $tasks['idTask'] ?>"><?php echo $tasks['descriptionTask']; ?></div>
+                                            <div class="text-truncate mb-1" id="taskDescription<?= $tasks['idTask'] ?>"><?php echo $tasks['descriptionTask']; ?></div>
                                         </div>
-                                        <span class="btn btn-primary px-1 py-0" id="taskPriority<?= $tasks['idTask'] ?>"><?php echo $tasks['namePriority']; ?></span>
-                                        <span class="btn btn-gray-300 text-black px-1 py-0" id="taskType<?= $tasks['idTask'] ?>"><?php echo $tasks['nameType']; ?></span>
+                                        <span class="badge text-bg-primary even-larger-badge" id="taskPriority<?= $tasks['idTask'] ?>"><?php echo $tasks['namePriority']; ?></span>
+                                        <span class="badge bg-secondary even-larger-badge" id="taskType<?= $tasks['idTask'] ?>"><?php echo $tasks['nameType']; ?></span>
                                         <span style="display:none;" id="taskStatus<?php echo $tasks['idTask']; ?>" ><?php echo $tasks['statusTask']; ?></span>
                                     </div>
                                 </button>
