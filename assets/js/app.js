@@ -81,7 +81,7 @@ function getTask(element , id) {
     document.getElementById("DescriptionInput").value = document.querySelector(`#taskDescription${id}`).innerText;
     document.getElementById("IdInput").value = id;
 
-    // Delete action confirmation using SweetAlert2 combined with ajax
+    // Delete action confirmation using SweetAlert2 combined with Ajax
     $("#deleteValidation").on('click', function (e) { 
 
         // prevent Reload of page
@@ -96,9 +96,7 @@ function getTask(element , id) {
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, delete it!', 
-         /* preConfirm: function() {
-            $("#deleteValidation").submit();
-        }  */
+        
         }).then((result) => {
         if (result.isConfirmed) {
              Swal.fire(
@@ -131,6 +129,7 @@ function getTask(element , id) {
         }
         })
       })
+      
     // Affichez updates
    /*  document.getElementById("taskTitle").value = tasks[index].title;
     if (tasks[index].type == "Bug") {
