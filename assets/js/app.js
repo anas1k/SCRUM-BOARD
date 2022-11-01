@@ -80,9 +80,14 @@ function getTask(element , id) {
     document.getElementById("DateInput").value = document.querySelector(`#DateTaskForm${id}`).innerText;
     document.getElementById("DescriptionInput").value = document.querySelector(`#taskDescription${id}`).innerText;
     document.getElementById("IdInput").value = id;
-    /* document.getElementById("deleteValidation").addEventListener( */
+
+    // Delete action confirmation using SweetAlert2 combined with ajax
     $("#deleteValidation").on('click', function (e) { 
+
+        // prevent Reload of page
         e.preventDefault();
+
+        // SweetAlert2 pop up 
         Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -93,7 +98,6 @@ function getTask(element , id) {
         confirmButtonText: 'Yes, delete it!', 
          /* preConfirm: function() {
             $("#deleteValidation").submit();
-
         }  */
         }).then((result) => {
             
@@ -116,11 +120,6 @@ function getTask(element , id) {
                 }else {
                     document.getElementById("done-tasks-count").innerText = parseInt(document.getElementById("done-tasks-count").innerText) -1;
                 }
-                // let toDoCount = 0,
-                //     inProgressCount = 0,
-                //     doneCount = 0;
-                // console.log(element.querySelector(`#taskStatus${id}`).innerText);
-                // if(element.status ==)
                 
                 element.remove();
                 $("#taskModal").modal("hide");
