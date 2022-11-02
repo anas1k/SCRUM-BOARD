@@ -81,6 +81,8 @@ function getTask(element , id) {
     document.getElementById("DescriptionInput").value = document.querySelector(`#taskDescription${id}`).innerText;
     document.getElementById("IdInput").value = id;
 
+
+
     // Delete action confirmation using SweetAlert2 combined with Ajax
     $("#deleteValidation").on('click', function (e) { 
 
@@ -98,13 +100,14 @@ function getTask(element , id) {
         confirmButtonText: 'Yes, delete it!', 
         
         }).then((result) => {
+        // after confirmation is succesfull
         if (result.isConfirmed) {
              Swal.fire(
             'Deleted!',
             'Your task has been deleted.',
             'success'
             );
-            // using ajax to send data withut refresh 
+            // using ajax to send data withut refresh
             $.ajax({
                 url: "scripts.php",
                 type: "POST",
@@ -123,12 +126,13 @@ function getTask(element , id) {
                     element.remove();
                     // hiding the modal after the confirmation 
                     $("#taskModal").modal("hide");
-                    // location.reload(true);
+                    // location.reload(true); was used to reload the page again as a test case
                 }
             })
         }
         })
       })
+      
 
     // Affichez updates
    /*  document.getElementById("taskTitle").value = tasks[index].title;

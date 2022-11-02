@@ -13,7 +13,7 @@
         $title = $_POST['titleInput'];
         $type = $_POST['typeInput'];
         $priority = $_POST['priorityInput'];
-        $status = $_POST['statusInput'];
+        $status = $_POST['statusInput']; 
         $date = $_POST['dateInput'];
         $description = $_POST['descriptionInput'];
 

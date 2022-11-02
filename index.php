@@ -164,7 +164,7 @@
                         <form id="form" method="post">
                             <div class="mb-0">
                                 <label for="taskTitle" class="col-form-label">Title</label>
-                                <input type="text" class="form-control" id="TitleInput" name="titleInput" required />
+                                <input type="text" class="form-control" id="TitleInput" name="titleInput" required /> <!--  pattern="[A-Za-z]{3}"  -->
                             </div>
                             <div class="mb-0">
                                 <label for="taskType" class="col-form-label">Type</label>
