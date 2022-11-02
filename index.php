@@ -16,7 +16,7 @@
 
         <!-- ================== BEGIN core-css ================== -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <link href="assets/css/vendor.min.css" rel="stylesheet" />
         <link href="assets/css/default/app.min.css" rel="stylesheet" />
         <link href="assets/css/style.css" rel="stylesheet" />
@@ -71,8 +71,8 @@
                                             <div class="text-truncate mb-1" id="taskDescription<?= $tasks['idTask'] ?>" ><?php echo $tasks['descriptionTask']; ?></div>
                                         </div>
                                         
-                                            <span class="badge text-bg-primary even-larger-badge" id="taskPriority<?= $tasks['idTask'] ?>" ><?php echo $tasks['namePriority']; ?></span>
-                                            <span class="badge bg-secondary even-larger-badge text-black" id="taskType<?= $tasks['idTask'] ?>"> <?php echo $tasks['nameType']; ?></span>
+                                            <span class=" badge bg-primary even-larger-badge" id="taskPriority<?= $tasks['idTask'] ?>" ><?php echo $tasks['namePriority']; ?></span>
+                                            <span class="badge bg-secondary-100 even-larger-badge text-black" id="taskType<?= $tasks['idTask'] ?>"> <?php echo $tasks['nameType']; ?></span>
                                             <span style="display:none" id="taskStatus<?php echo $tasks['idTask']; ?>" ><?php echo $tasks['statusTask']; ?></span>
                                         
                                     </div>
@@ -101,8 +101,8 @@
                                             <div class="fw-light text-secondary" >#<?php echo $allTasksCount++ ." created in "?><span id="DateTaskForm<?= $tasks['idTask']; ?>"><?=$tasks['dateTask']; ?></span></div>
                                             <div class="text-truncate mb-1" id="taskDescription<?= $tasks['idTask'] ?>"><?php echo $tasks['descriptionTask']; ?></div>
                                         </div>
-                                        <span class="badge text-bg-primary even-larger-badge" id="taskPriority<?= $tasks['idTask'] ?>"><?php echo $tasks['namePriority']; ?></span>
-                                        <span class="badge bg-secondary even-larger-badge text-black" id="taskType<?= $tasks['idTask'] ?>"><?php echo $tasks['nameType']; ?></span>
+                                        <span class="badge bg-primary even-larger-badge" id="taskPriority<?= $tasks['idTask'] ?>"><?php echo $tasks['namePriority']; ?></span>
+                                        <span class="badge bg-secondary-100 even-larger-badge text-black" id="taskType<?= $tasks['idTask'] ?>"><?php echo $tasks['nameType']; ?></span>
                                         <span style="display:none" id="taskStatus<?php echo $tasks['idTask']; ?>" ><?php echo $tasks['statusTask']; ?></span>
                                     </div>
                                 </button>
@@ -132,8 +132,8 @@
                                                 #<?php echo $allTasksCount++ ." created in "?><span id="DateTaskForm<?= $tasks['idTask']; ?>"><?=$tasks['dateTask']; ?></span></div>
                                             <div class="text-truncate mb-1" id="taskDescription<?= $tasks['idTask'] ?>"><?php echo $tasks['descriptionTask']; ?></div>
                                         </div>
-                                        <span class="badge text-bg-primary even-larger-badge" id="taskPriority<?= $tasks['idTask'] ?>"><?php echo $tasks['namePriority']; ?></span>
-                                        <span class="badge bg-secondary even-larger-badge text-black" id="taskType<?= $tasks['idTask'] ?>"><?php echo $tasks['nameType']; ?></span>
+                                        <span class="badge bg-primary even-larger-badge" id="taskPriority<?= $tasks['idTask'] ?>"><?php echo $tasks['namePriority']; ?></span>
+                                        <span class="badge bg-secondary-100 even-larger-badge text-black" id="taskType<?= $tasks['idTask'] ?>"><?php echo $tasks['nameType']; ?></span>
                                         <span style="display:none;" id="taskStatus<?php echo $tasks['idTask']; ?>" ><?php echo $tasks['statusTask']; ?></span>
                                     </div>
                                 </button>
