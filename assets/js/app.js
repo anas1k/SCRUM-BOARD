@@ -16,56 +16,62 @@ function createTask() {
     $("#taskModal").modal("show");
     
 }
+
+// declaring validation inputs and spans
 let Title = document.getElementById("TitleInput"),
-        Description = document.getElementById("DescriptionInput"),
-        TitleSpan = document.getElementById("ValidateTilte"),
-        DescriptionSpan = document.getElementById("ValidateDescription");
-    $("#saveTask").on('click', function (ee) {
-        
-            if (Title.value == "" || !(/^[a-z A-Z]{5,}$/).test(Title.value)) {
-                ee.preventDefault();
-                Description.setAttribute("style", "color:black; border: 1px green solid ;");
-                DescriptionSpan.innerText = "";
-                Title.setAttribute("style", "color:red; border: 1px red solid ;");
-                TitleSpan.innerText = "Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres!!"
-                TitleSpan.setAttribute("style", "color:red;font-size:10px;");
-            }else if (Description.value == "" || !(/^[a-z A-Z]{5,}$/).test(Description.value)) {
-                ee.preventDefault();
-                Title.setAttribute("style", "color:black; border: 1px green solid ;");
-                TitleSpan.innerText = "";
-                Description.setAttribute("style", "color:red; border: 1px red solid ;");
-                DescriptionSpan.innerText = "Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres!!"
-                DescriptionSpan.setAttribute("style", "color:red;font-size:10px;");
-            }else {
-                Title.setAttribute("style", "color:black; border: 1px green solid ;");
-                Description.setAttribute("style", "color:black; border: 1px green solid ;");
-                location;reload(true);
-            }
-        
-    })
-    $("#updateTask").on('click', function (ee) {
-        
-            if (Title.value == "" || !(/^[a-z A-Z]{5,}$/).test(Title.value)) {
-                ee.preventDefault();
-                Description.setAttribute("style", "color:black; border: 1px green solid ;");
-                DescriptionSpan.innerText = "";
-                Title.setAttribute("style", "color:red; border: 1px red solid ;");
-                TitleSpan.innerText = "Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres!!"
-                TitleSpan.setAttribute("style", "color:red;font-size:10px;");
-            }else if (Description.value == "" || !(/^[a-z A-Z]{5,}$/).test(Description.value)) {
-                ee.preventDefault();
-                Title.setAttribute("style", "color:black; border: 1px green solid ;");
-                TitleSpan.innerText = "";
-                Description.setAttribute("style", "color:red; border: 1px red solid ;");
-                DescriptionSpan.innerText = "Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres!!"
-                DescriptionSpan.setAttribute("style", "color:red;font-size:10px;");
-            }else {
-                Title.setAttribute("style", "color:black; border: 1px green solid ;");
-                Description.setAttribute("style", "color:black; border: 1px green solid ;");
-                location;reload(true);
-            }
-        
-    })
+    Description = document.getElementById("DescriptionInput"),
+    TitleSpan = document.getElementById("ValidateTilte"),
+    DescriptionSpan = document.getElementById("ValidateDescription");
+    
+// event listener for saveValidation 
+$("#saveTask").on('click', function (ee) {
+    
+    if (Title.value == "" || !(/^[a-z A-Z]{5,}$/).test(Title.value)) {
+        ee.preventDefault();
+        Description.setAttribute("style", "color:black; border: 1px #ced4da solid ;");
+        DescriptionSpan.innerText = "";
+        Title.setAttribute("style", "color:red; border: 1px red solid ;");
+        TitleSpan.innerText = "Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres et sans caractéres speciaux!!"
+        TitleSpan.setAttribute("style", "color:red;font-size:10px;");
+    }else if (Description.value == "" || !(/^[a-z A-Z.:]{5,}$/).test(Description.value)) {
+        ee.preventDefault();
+        Title.setAttribute("style", "color:black; border: 1px #ced4da solid ;");
+        TitleSpan.innerText = "";
+        Description.setAttribute("style", "color:red; border: 1px red solid ;");
+        DescriptionSpan.innerText = "Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres!!"
+        DescriptionSpan.setAttribute("style", "color:red;font-size:10px;");
+    }else {
+        Title.setAttribute("style", "color:black; border: 1px #ced4da solid ;");
+        Description.setAttribute("style", "color:black; border: 1px #ced4da solid ;");
+        reload(true);
+    }
+    
+})
+
+// event listener for updateValidation 
+$("#updateTask").on('click', function (ee) {
+    
+    if (Title.value == "" || !(/^[a-z A-Z]{5,}$/).test(Title.value)) {
+        ee.preventDefault();
+        Description.setAttribute("style", "color:black; border: 1px #ced4da solid ;");
+        DescriptionSpan.innerText = "";
+        Title.setAttribute("style", "color:red; border: 1px red solid ;");
+        TitleSpan.innerText = "Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres et sans caractéres speciaux!!"
+        TitleSpan.setAttribute("style", "color:red;font-size:10px;");
+    }else if (Description.value == "" || !(/^[a-z A-Z.:/]{5,}$/).test(Description.value)) {
+        ee.preventDefault();
+        Title.setAttribute("style", "color:black; border: 1px #ced4da solid ;");
+        TitleSpan.innerText = "";
+        Description.setAttribute("style", "color:red; border: 1px red solid ;");
+        DescriptionSpan.innerText = "Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres!!"
+        DescriptionSpan.setAttribute("style", "color:red;font-size:10px;");
+    }else {
+        Title.setAttribute("style", "color:black; border: 1px #ced4da solid ;");
+        Description.setAttribute("style", "color:black; border: 1px #ced4da solid ;");
+        reload(true);
+    }
+    
+})
 
 function saveTask() {
 
@@ -103,6 +109,13 @@ function getTask(element , id) {
     // Save Button show 
     document.getElementById("saveTask").style.display = "none";
     document.getElementById("editTask").style.display = "block";
+
+    // resets previous validation 
+    Title.setAttribute("style", "");
+    Description.setAttribute("style", "");
+    DescriptionSpan.innerText = "";
+    TitleSpan.innerText = "";
+
 
     // Initialisez task form
     $("#taskModal").modal("show");
