@@ -9,12 +9,63 @@ function createTask() {
     document.getElementById("form").reset();
     
     // Afficher le boutton save
-    document.getElementById("save").style.display = "block";
+    document.getElementById("saveTask").style.display = "block";
     document.getElementById("editTask").style.display = "none";
 
     // Ouvrir modal form
     $("#taskModal").modal("show");
+    
 }
+let Title = document.getElementById("TitleInput"),
+        Description = document.getElementById("DescriptionInput"),
+        TitleSpan = document.getElementById("ValidateTilte"),
+        DescriptionSpan = document.getElementById("ValidateDescription");
+    $("#saveTask").on('click', function (ee) {
+        
+            if (Title.value == "" || !(/^[a-z A-Z]{5,}$/).test(Title.value)) {
+                ee.preventDefault();
+                Description.setAttribute("style", "color:black; border: 1px green solid ;");
+                DescriptionSpan.innerText = "";
+                Title.setAttribute("style", "color:red; border: 1px red solid ;");
+                TitleSpan.innerText = "Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres!!"
+                TitleSpan.setAttribute("style", "color:red;font-size:10px;");
+            }else if (Description.value == "" || !(/^[a-z A-Z]{5,}$/).test(Description.value)) {
+                ee.preventDefault();
+                Title.setAttribute("style", "color:black; border: 1px green solid ;");
+                TitleSpan.innerText = "";
+                Description.setAttribute("style", "color:red; border: 1px red solid ;");
+                DescriptionSpan.innerText = "Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres!!"
+                DescriptionSpan.setAttribute("style", "color:red;font-size:10px;");
+            }else {
+                Title.setAttribute("style", "color:black; border: 1px green solid ;");
+                Description.setAttribute("style", "color:black; border: 1px green solid ;");
+                location;reload(true);
+            }
+        
+    })
+    $("#updateTask").on('click', function (ee) {
+        
+            if (Title.value == "" || !(/^[a-z A-Z]{5,}$/).test(Title.value)) {
+                ee.preventDefault();
+                Description.setAttribute("style", "color:black; border: 1px green solid ;");
+                DescriptionSpan.innerText = "";
+                Title.setAttribute("style", "color:red; border: 1px red solid ;");
+                TitleSpan.innerText = "Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres!!"
+                TitleSpan.setAttribute("style", "color:red;font-size:10px;");
+            }else if (Description.value == "" || !(/^[a-z A-Z]{5,}$/).test(Description.value)) {
+                ee.preventDefault();
+                Title.setAttribute("style", "color:black; border: 1px green solid ;");
+                TitleSpan.innerText = "";
+                Description.setAttribute("style", "color:red; border: 1px red solid ;");
+                DescriptionSpan.innerText = "Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres!!"
+                DescriptionSpan.setAttribute("style", "color:red;font-size:10px;");
+            }else {
+                Title.setAttribute("style", "color:black; border: 1px green solid ;");
+                Description.setAttribute("style", "color:black; border: 1px green solid ;");
+                location;reload(true);
+            }
+        
+    })
 
 function saveTask() {
 
@@ -50,12 +101,11 @@ function saveTask() {
 function getTask(element , id) {
 
     // Save Button show 
-    document.getElementById("save").style.display = "none";
+    document.getElementById("saveTask").style.display = "none";
     document.getElementById("editTask").style.display = "block";
 
     // Initialisez task form
     $("#taskModal").modal("show");
-    /* console.log(document.querySelector(`#taskTitle${id}`)); */
 
     //Getting info already printed by PHP thats clicked on and printing it to the same modal used by addTask 
     document.getElementById("TitleInput").value = document.querySelector(`#taskTitle${id}`).innerText;

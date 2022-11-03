@@ -126,7 +126,7 @@
                                         <i class="fa-lg fa-regular fa-circle-check green"></i>
                                     </div>
                                     <div class="text-start mb-1">
-                                        <div class="fw-bold fs-5" id="taskTitle<?= $tasks['idTask'] ?>" ><?php echo $tasks['titleTask']; ?></div>
+                                        <div class="fw-bold fs-5 text-break" id="taskTitle<?= $tasks['idTask'] ?>" ><?php echo $tasks['titleTask']; ?></div>
                                         <div class="description-max-width">
                                             <div class="fw-light text-secondary" >
                                                 #<?php echo $allTasksCount++ ." created in "?><span id="DateTaskForm<?= $tasks['idTask']; ?>"><?=$tasks['dateTask']; ?></span></div>
@@ -164,7 +164,8 @@
                         <form id="form" method="post">
                             <div class="mb-0">
                                 <label for="taskTitle" class="col-form-label">Title</label>
-                                <input type="text" class="form-control" id="TitleInput" name="titleInput" required /> <!--  pattern="[A-Za-z]{3}"  -->
+                                <input type="text" class="form-control" id="TitleInput" name="titleInput"  /> <!--  pattern="[A-Za-z]{3}"  -->
+                                <div id="ValidateTilte"></div>
                             </div>
                             <div class="mb-0">
                                 <label for="taskType" class="col-form-label">Type</label>
@@ -204,13 +205,14 @@
                             <div class="mb-0">
                                 <label for="taskDate" class="col-form-label">Description</label>
                                 <textarea class="form-control" id="DescriptionInput" required rows="8" name="descriptionInput"></textarea>
+                                <span id="ValidateDescription"></span>
                             </div>
                             <div class="modal-footer">
                                 <button type="reset" class="btn btn-outline-dark text-black" data-bs-dismiss="modal">Cancel</button>
-                                <button id="save" type="submit" name="addTaskForm"  class="btn btn-primary">Save</button>
+                                <button id="saveTask" type="submit" name="addTaskForm"  class="btn btn-primary">Save</button>
                                 <div id="editTask" style="display: none">
                                     <button type="submit" id="deleteValidation" name="deleteTaskFrom" class="btn btn-danger text-black">Delete</button>
-                                    <button type="submit" name="updateTaskForm" class="btn btn-warning text-black">Update</button>
+                                    <button id="updateTask" type="submit" name="updateTaskForm" class="btn btn-warning text-black">Update</button>
                                 </div>
                             </div>
                         </form>
