@@ -41,8 +41,6 @@
 
         // Getting id of task for deletion
         $id = $_POST['deleteTaskFrom'];
-        echo "Deleting task";
-        echo $id;
         
         // redirecting back to Home page
         deleteTask($id);
@@ -73,7 +71,7 @@
         $result = connect() -> query($sql);
 
         // SESSION message of conformation 
-        $_SESSION['message'] = "Fetch all tasks";
+        // $_SESSION['message'] = "Fetch all tasks";
 
         // returning results of Query to display in Home page
         return $result;
@@ -120,8 +118,6 @@
     {
         //CODE HERE
         //SQL "DELETE"
-        // $arr = ["test" => "tesst" , "no test" => "no test"];
-        // return $arr;
         $sql="DELETE FROM tasks WHERE id='$id'";
 
         // passing SQL with Connection function to DataBase

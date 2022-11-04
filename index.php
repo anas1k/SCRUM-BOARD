@@ -2,7 +2,6 @@
     //include file where functions are defined
     include ('scripts.php');
     include('controller.php');
-
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +60,7 @@
                                         if($tasks['nameStatus'] === "To Do"){
                                 ?>
                                 <button class="d-flex list-group-item w-100 py-2 px-1" onclick="getTask(this , '<?php echo $tasks['idTask']; ?>')" >
-                                    <div class="mt-2 m-3">
+                                    <div class="m-3">
                                         <i class="fa-lg fa-regular fa-circle-question green"></i>
                                     </div>
                                     <div class="text-start mb-1">
@@ -92,7 +91,7 @@
                                 <?php foreach ($allTasks as $tasks) { 
                                     if($tasks['nameStatus'] === "In Progress"){?>
                                 <button id="inProgress-box" class="d-flex list-group-item w-100 py-2 px-1" onclick="getTask(this , '<?php echo $tasks['idTask']; ?>')">
-                                    <div class="mt-2 m-3 rotate">
+                                    <div class="m-3 rotate">
                                         <i class="fa-lg fa-solid fa-circle-notch green"></i>
                                     </div>
                                     <div class="text-start mb-1">
@@ -122,18 +121,18 @@
                                         if($tasks['nameStatus'] === "Done"){
                                 ?>
                                 <button class="d-flex list-group-item w-100 py-2 px-1" onclick="getTask(this , '<?php echo $tasks['idTask']; ?>')">
-                                    <div class="mt-2 m-3">
+                                    <div class="m-3">
                                         <i class="fa-lg fa-regular fa-circle-check green"></i>
                                     </div>
                                     <div class="text-start mb-1">
-                                        <div class="fw-bold fs-5 text-break" id="taskTitle<?= $tasks['idTask'] ?>" ><?php echo $tasks['titleTask']; ?></div>
+                                        <div class="fw-bold fs-5 text-break" id="taskTitle<?= $tasks['idTask']; ?>" ><?php echo $tasks['titleTask']; ?></div>
                                         <div class="description-max-width">
                                             <div class="fw-light text-secondary" >
-                                                #<?php echo $allTasksCount++ ." created in "?><span id="DateTaskForm<?= $tasks['idTask']; ?>"><?=$tasks['dateTask']; ?></span></div>
-                                            <div class="text-truncate mb-1" id="taskDescription<?= $tasks['idTask'] ?>"><?php echo $tasks['descriptionTask']; ?></div>
+                                                #<?php echo $allTasksCount++ ." created in ";?><span id="DateTaskForm<?= $tasks['idTask']; ?>"><?=$tasks['dateTask']; ?></span></div>
+                                            <div class="text-truncate mb-1" id="taskDescription<?= $tasks['idTask']; ?>"><?php echo $tasks['descriptionTask']; ?></div>
                                         </div>
-                                        <span class="badge bg-primary even-larger-badge" id="taskPriority<?= $tasks['idTask'] ?>"><?php echo $tasks['namePriority']; ?></span>
-                                        <span class="badge bg-secondary-100 even-larger-badge text-black" id="taskType<?= $tasks['idTask'] ?>"><?php echo $tasks['nameType']; ?></span>
+                                        <span class="badge bg-primary even-larger-badge" id="taskPriority<?= $tasks['idTask']; ?>"><?php echo $tasks['namePriority']; ?></span>
+                                        <span class="badge bg-secondary-100 even-larger-badge text-black" id="taskType<?= $tasks['idTask']; ?>"><?php echo $tasks['nameType']; ?></span>
                                         <span style="display:none;" id="taskStatus<?php echo $tasks['idTask']; ?>" ><?php echo $tasks['statusTask']; ?></span>
                                     </div>
                                 </button>
@@ -236,6 +235,32 @@
         <script>
             // to reload tasks everytime the page reloads with JavaScript
            /*  reloadTasks(); */
+           
+            <?php if (isset($_SESSION['message'])) { 
+                ?>
+                const Toast = Swal.mixin({
+                    width: '25em',
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    timerProgressBar: false,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                Toast.fire({
+                    icon: 'success',
+                    title: '<?=$_SESSION['message']; ?>'
+                })
+            <?php
+                    //session_unset('message');
+                    unset($_SESSION['message']);
+                    
+                } ?>
+                
         </script>
 
         <!-- JavaScript Code End -->

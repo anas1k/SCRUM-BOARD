@@ -11,6 +11,7 @@ function createTask() {
     // Afficher le boutton save
     document.getElementById("saveTask").style.display = "block";
     document.getElementById("editTask").style.display = "none";
+    // add class list 
 
     // Ouvrir modal form
     $("#taskModal").modal("show");
@@ -22,28 +23,32 @@ let Title = document.getElementById("TitleInput"),
     Description = document.getElementById("DescriptionInput"),
     TitleSpan = document.getElementById("ValidateTilte"),
     DescriptionSpan = document.getElementById("ValidateDescription");
-    
+
 // event listener for saveValidation 
 $("#saveTask").on('click', function (ee) {
     
     if (Title.value == "" || !(/^[a-z A-Z]{5,}$/).test(Title.value)) {
+
         ee.preventDefault();
+
         Description.setAttribute("style", "color:black; border: 1px #ced4da solid ;");
         DescriptionSpan.innerText = "";
+
         Title.setAttribute("style", "color:red; border: 1px red solid ;");
         TitleSpan.innerText = "Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres et sans caractéres speciaux!!"
         TitleSpan.setAttribute("style", "color:red;font-size:10px;");
-    }else if (Description.value == "" || !(/^[a-z A-Z.:]{5,}$/).test(Description.value)) {
+
+    }else if(Description.value == "" || !(/^[a-z A-Z.:,]{5,}$/).test(Description.value)) {
+
         ee.preventDefault();
+
         Title.setAttribute("style", "color:black; border: 1px #ced4da solid ;");
         TitleSpan.innerText = "";
+
         Description.setAttribute("style", "color:red; border: 1px red solid ;");
-        DescriptionSpan.innerText = "Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres!!"
+        DescriptionSpan.innerText = "Veuillez entrer une description valide ! verifiez que la description contient au minimum 5 caractéres!!"
         DescriptionSpan.setAttribute("style", "color:red;font-size:10px;");
-    }else {
-        Title.setAttribute("style", "color:black; border: 1px #ced4da solid ;");
-        Description.setAttribute("style", "color:black; border: 1px #ced4da solid ;");
-        reload(true);
+
     }
     
 })
@@ -52,23 +57,27 @@ $("#saveTask").on('click', function (ee) {
 $("#updateTask").on('click', function (ee) {
     
     if (Title.value == "" || !(/^[a-z A-Z]{5,}$/).test(Title.value)) {
+
         ee.preventDefault();
+
         Description.setAttribute("style", "color:black; border: 1px #ced4da solid ;");
         DescriptionSpan.innerText = "";
+
         Title.setAttribute("style", "color:red; border: 1px red solid ;");
         TitleSpan.innerText = "Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres et sans caractéres speciaux!!"
         TitleSpan.setAttribute("style", "color:red;font-size:10px;");
-    }else if (Description.value == "" || !(/^[a-z A-Z.:/]{5,}$/).test(Description.value)) {
+
+    }else if (Description.value == "" || !(/^[a-z A-Z.:,/]{5,}$/).test(Description.value)) {
+
         ee.preventDefault();
+
         Title.setAttribute("style", "color:black; border: 1px #ced4da solid ;");
         TitleSpan.innerText = "";
+
         Description.setAttribute("style", "color:red; border: 1px red solid ;");
         DescriptionSpan.innerText = "Veuillez entrer un nom valide ! verifiez que le nom contient au minimum 5 caractéres!!"
         DescriptionSpan.setAttribute("style", "color:red;font-size:10px;");
-    }else {
-        Title.setAttribute("style", "color:black; border: 1px #ced4da solid ;");
-        Description.setAttribute("style", "color:black; border: 1px #ced4da solid ;");
-        reload(true);
+
     }
     
 })
@@ -111,11 +120,11 @@ function getTask(element , id) {
     document.getElementById("editTask").style.display = "block";
 
     // resets previous validation 
-    Title.setAttribute("style", "");
+   /*  Title.setAttribute("style", "");
     Description.setAttribute("style", "");
     DescriptionSpan.innerText = "";
     TitleSpan.innerText = "";
-
+ */
 
     // Initialisez task form
     $("#taskModal").modal("show");
@@ -128,6 +137,7 @@ function getTask(element , id) {
     } else {
         document.getElementById("feature").checked = true
     }
+
     document.getElementById("StatusInput").value = document.querySelector(`#taskStatus${id}`).innerText;
 
     if(document.querySelector(`#taskPriority${id}`).innerText== "Low"){
@@ -175,7 +185,7 @@ function getTask(element , id) {
                 url: "scripts.php",
                 type: "POST",
                 data: {deleteTaskFrom: id},
-                // dataType: "html",
+                dataType: "html",
                 success: function () {
                     // modifiers for task counters to subtract without refresh 
                     if(element.querySelector(`#taskStatus${id}`).innerText == 1){
@@ -185,11 +195,12 @@ function getTask(element , id) {
                     }else {
                         document.getElementById("done-tasks-count").innerText = parseInt(document.getElementById("done-tasks-count").innerText) -1;
                     }
+
                     // removing the deleted element from DOM 
                     element.remove();
                     // hiding the modal after the confirmation 
                     $("#taskModal").modal("hide");
-                    // location.reload(true); was used to reload the page again as a test case
+                    
                 }
             })
         }
