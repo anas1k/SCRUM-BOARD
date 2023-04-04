@@ -93,6 +93,7 @@
 
         // redirecting back to Home page
 		header('location: index.php');
+        die();
 
     }
 
@@ -111,6 +112,7 @@
 
         // redirecting back to Home page
 		header('location: index.php');
+        die();
         
     }
 
@@ -128,6 +130,7 @@
 
         // redirecting back to Home page
 		header('location: index.php');
+        die();
 
     }
 

@@ -256,13 +256,10 @@
                     title: '<?=$_SESSION['message']; ?>'
                 })
             <?php
-                    //session_unset('message');
                     unset($_SESSION['message']);
-                    
                 } ?>
                 
         </script>
-
         <!-- JavaScript Code End -->
     </body>
 </html>
